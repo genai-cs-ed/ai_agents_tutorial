@@ -86,11 +86,6 @@
   .sub { color: var(--muted); margin: 0 0 32px; max-width: 42em; }
 
   /* Steps */
-  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: s; padding: 0; margin: 0; list-style: none; }
-  .steps li { counter-increment: s; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; box-shadow: var(--shadow); }
-  .steps li::before { content: counter(s); display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-weight: 700; margin-bottom: 14px; }
-  .steps h3 { margin: 0 0 6px; font-size: 18px; }
-  .steps p { margin: 0; color: var(--muted); font-size: 16px; }
 
   /* Material cards */
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -125,8 +120,7 @@
   footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; }
 
   @media (max-width: 820px) {
-    .steps, .tools { grid-template-columns: 1fr; }
-    .grid { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
     .plan { grid-template-columns: 1fr; }
     .card.feature { flex-direction: column; align-items: flex-start; }
     nav { gap: 16px; }
@@ -174,27 +168,6 @@
       </ul>
     </div>
   </div>
-
-  <section id="prepare">
-    <div class="wrap">
-      <h2>Before you arrive</h2>
-      <p class="sub">Three small things make the session much more useful.</p>
-      <ol class="steps">
-        <li>
-          <h3>Think of a task</h3>
-          <p>Pick something small that you do again and again, such as summarizing notes, answering the same questions, or reformatting information.</p>
-        </li>
-        <li>
-          <h3>Sign in to a tool</h3>
-          <p>Use your WashU account to sign in to Gemini, Claude, or Microsoft Copilot Chat. Pick whichever you can access.</p>
-        </li>
-        <li>
-          <h3>Bring a sample</h3>
-          <p>Have a made-up or cleaned-up example of the input for your task, such as an email or a page of notes with anything private removed.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
 
   <section id="materials" class="alt">
     <div class="wrap">
