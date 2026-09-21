@@ -37,17 +37,15 @@ Read the pitch line: "Bring one task you do over and over. Leave with a first dr
 
 # Our 90 minutes
 
-- **0:00** 1. Pick your task
-- **0:10** 2. What is an agent?
-- **0:25** 3. Get set up
-- **0:30** 4. Build: your task as a recipe
-- **0:50** Break
-- **0:55** 5. Level up
-- **1:15** 6. Trust, check, stop
-- **1:25** 7. Share and next steps
+1. Pick your task
+2. What is an agent?
+3. Build: your task as a recipe
+4. Get set up and try your recipe
+5. Level up
+6. Trust, check, stop
 
 <!--
-Quick pass over the agenda. Point out that every block ends with participants doing something, never with a slide. Buffer: if the room runs slow, cut the Level up tracks to the first two and turn Trust, check, stop into a short talk. If it runs fast, extend the share-out into a lightning round.
+Quick pass over the plan. Point out that every block ends with participants doing something, never with a slide. There is a short break after block 4. Buffer: if the room runs slow, cut the Level up tracks to the first two and turn Trust, check, stop into a short talk. If it runs fast, give people longer on the Level up tracks.
 -->
 
 ---
@@ -118,86 +116,64 @@ Leave this up while people work. If anyone is still stuck, offer examples. Facul
 
 | | Chatbot | Agent |
 | --- | --- | --- |
-| **You give it** | A question | A goal |
-| **It uses** | What it already knows | Tools: files, the web, other apps |
-| **It works** | One answer, then waits | In a loop, on its own |
-| **You get** | A response | Finished work, or a question when it is stuck |
+| **Steering** | You: read, correct, ask again | It plans, acts, checks, adjusts |
+| **Tools** | What it knows, plus what you paste in | Files, the web, other apps |
+| **You get** | An answer at each step | Finished work, or a question |
 
-**A chatbot answers. An agent works toward a goal.**
+**Both can work toward a goal you state. The difference is how much of the steering you do.**
 
 <!--
-0:10 to 0:25. The one message for this block. Keep it short and jargon free. Three ingredients make the difference: a goal, tools it can use, and a loop where it plans, acts, checks, and adjusts.
+0:10 to 0:25. The one message for this block. Keep it short and jargon free. A chatbot remembers the conversation, so it can absolutely help you reach a goal you state, for example drafting a plan over ten messages, but you are the loop: you read each answer, decide what is wrong, and ask for the next step. An agent takes the same goal and runs that loop itself: it plans, acts with tools, checks its own result, and adjusts, then hands back finished work or asks you a question when it is stuck. It is a difference in degree, not a wall between two kinds of tool.
 -->
 
 ---
 
-# The agent loop
+# How you reach a chatbot vs an agent
 
-**Goal** → **Plan** → **Act with tools** → **Check the result** → **Hand back to you**
+| | Chat window | Agent-style features |
+| --- | --- | --- |
+| **Claude** | New chat | Projects, Research, Skills |
+| **Gemini** | New chat | Gems, Deep Research |
+| **Copilot Chat** | Chat | Agents |
 
-If the check fails, it goes back to the plan. It repeats until the check passes or it asks for help.
+**Often it is the same tool with more turned on:** saved instructions, files, the web, and connected tools.
 
-### A spectrum, not a switch
-
-Single prompt → Saved instructions → Tool-using workflow → Runs on its own
-
-**Today we build the first three.**
+Some agents are separate apps that work on your files, such as Claude Code and Cowork.
 
 <!--
-Draw the loop on the whiteboard if you like. Stress that this is a spectrum and not a line between two things. Most useful work today sits in the middle: saved instructions plus a few tools, with a human checking the result.
+Keep this short. The point: you do not go to a different website to get an agent. You open the same tool you already use and turn on or set up more. Chat window = the plain conversation. Agent-style features = things that let it follow saved instructions, use files, search the web, or run a multi-step job on its own. Claude: Projects (saved instructions plus files), Research, Skills; Cowork and Claude Code are separate apps that work on files and folders on your computer (both are listed on the WashU tools page). Gemini: Gems (saved instructions) and Deep Research (in the text box menu, it makes a plan, browses, and writes a report). Copilot Chat: agents, built with Agent Builder or Copilot Studio.
+
+Cautions before the day: feature names and availability change and depend on your plan and on what WashU has switched on. Microsoft's documentation says Agent Builder needs a paid Microsoft 365 Copilot license, so check what a free WashU Copilot Chat account can actually do. Research in Claude may need a paid plan outside Claude Edu, so check with a student login. Do a dry run in each tool and fix this table to match. The Get set up block goes into the exact menu names.
 -->
 
 ---
 
-# Live demo: one task, two ways
+![bg contain](pictures/agent-workflow.svg)
 
-1. **Single prompt.** Paste in messy notes and ask for a summary
-2. **Written recipe plus a file.** Same task, with clear instructions and an uploaded file
+<!-- _paginate: false -->
+<!-- _footer: "" -->
+
+<!--
+Walk left to right through the top row: the goal stays fixed, the agent plans, acts with tools, checks its own result, and hands back to you. Point at the red dashed arrow: if the check fails, it goes back and revises the plan, and repeats until the check passes or it asks for help. Then the bottom: this is a spectrum, not a switch between two kinds of tool. Most useful work today sits in the middle, with a human setting the goal and checking the result. Today we build the first three: a single prompt, saved instructions, and a tool-using workflow.
+-->
+
+---
+
+# Live demo: a four-year plan, two ways
+
+**The task:** plan the rest of a Computer Science degree from the official requirements and a transcript.
+
+1. **Chatbot.** Attach the files, ask for a plan, then steer it message by message
+2. **Agent.** Same goal and files, given once. It plans, checks, and hands back a finished plan
 
 Watch for:
 
-- What gets better
-- What still goes wrong
-- How we catch it
+- Who does the steering
+- What it does with the files
+- What you get back
 
 <!--
-About seven minutes. Use one of the tasks from the pair share. Fallback: messy meeting notes turned into action items plus a follow-up email. Let it make a small mistake on purpose and show how you catch it. Do the demo in one tool and say out loud that the others behave the same way.
--->
-
----
-
-# 3. Get set up
-
-Sign in to **Claude**, **Gemini**, or **Microsoft Copilot Chat** with your WashU account. Find:
-
-1. Where to **start a new chat**
-2. How to **attach a file**
-3. Where to **save a reusable assistant** (Claude Projects, Gemini Gems, Copilot agents)
-4. How to turn on **web search or research**
-
-Need help? Put a sticky note on your laptop.
-
-<!--
-0:25 to 0:30. Feature names and availability differ by tool and by what WashU has switched on, so do a dry run in each tool with a WashU login before the day and note the exact menu names. Especially check Claude Projects and Skills for students, Agent Builder in Copilot Chat, and Gemini Gems for each audience group. Recruit two or three confident people as peer helpers for sign-in questions. Confirm nobody is using real student records.
--->
-
----
-
-# 4. Build: your task as a recipe
-
-Fill in the **recipe handout**:
-
-**Goal · Context · Input · Steps · Output · Rules · Good example**
-
-- **7 min:** write the recipe
-- **5 min:** run it on a real sample
-- **3 min:** read the result critically
-- **5 min:** fix the recipe and run it again
-
-**Fix the recipe, not the output.**
-
-<!--
-0:30 to 0:50. Hand out the Write Your Recipe handout. Circulate and look for recipes that are too vague, such as "summarize this," and nudge people toward specifics. The template: Goal, Context, Input, Steps, Output, Rules, Good example.
+Plan on eight to ten minutes. Full prompts, setup, and an answer key are in demo/demo-script.md, and the made-up student is in demo/sample-transcript.txt. Use the same goal on both sides. Chatbot half: Claude chat, with the requirements PDF and the transcript attached; steer it out loud ("what does my transcript already satisfy?", "check your plan against every requirement"). Agent half: Claude Cowork on a folder with the same two files; give it the goal once and narrate what it does while it works. Pre-run both halves before the session and keep screenshots as a backup. Use only the made-up student, never a real record. Close by opening one plan and checking one line against the requirements: an agent can still be wrong, and you own the result.
 -->
 
 ---
@@ -216,6 +192,90 @@ Fill in the **recipe handout**:
 
 <!--
 This is the worked example on page 2 of the handout, which also includes an Input line: typed notes, often messy, with names and deadlines inside sentences. Point out that every added line removes a guess the tool would otherwise make.
+-->
+
+---
+
+# 3. Build: your task as a recipe
+
+A recipe has six parts. You will fill them in on the handout:
+
+| Part | What to write |
+| --- | --- |
+| **Goal** | What you want done, in one sentence |
+| **Context** | Who you are and who will read the result |
+| **Input** | What you will give it each time |
+| **Steps** | The actions, numbered, in order |
+| **Output** | Format, length, and tone of the result |
+| **Rules** | What it must never do, and when to ask you instead of guessing |
+
+<!--
+0:30 to 0:50. Hand out the Write Your Recipe handout and the printed Sample Recipe. Walk down the table one row at a time and give a one-sentence example for each part. Goal: "turn meeting notes into decisions and action items." Context: "I chair a small committee; the email goes to the members." Input: "typed notes, often messy." Steps: the numbered actions you would tell a new colleague. Output: "bullets, an action table, an email under 100 words." Rules: "use only what is in the notes; write 'unclear' if something is missing; ask me if unsure." There is also an optional Good example line on the handout: a sample result you would be happy with. Next slide: read a full sample together before anyone writes.
+-->
+
+---
+
+# Read a sample recipe together
+
+**Task:** review student lab submissions against a rubric
+
+Open the **Sample Recipe** on the website:
+
+[genai-cs-ed.github.io/ai_agents_tutorial](https://genai-cs-ed.github.io/ai_agents_tutorial/#materials)
+
+As we read, find each part: **Goal · Context · Input · Steps · Output · Rules**
+
+<!--
+Open the website live and download or open the Sample Recipe (Materials section), or use the printed copy. Read it aloud one part at a time and ask the room to call out which part you are in. Points to make: Context and Steps come straight from instructions the author actually gave an AI tool; Goal, Input and Output were written out so the tool does not have to infer them; Rules are suggested additions, so keep, change or delete them; Steps name the exact command (make) and the expected program name (lab0) so the tool does not have to guess how to build and run the work. Everything under the recipe is plain text, so people can copy it and adapt it for their own task. It is also on the website for anyone who wants it afterward. Say the website address out loud, or put it on the board.
+-->
+
+---
+
+# Your turn: write your recipe
+
+Use the **handout**, on paper or on your computer.
+
+**Goal · Context · Input · Steps · Output · Rules**
+
+- Start with the task from your worksheet
+- Short and specific beats long and vague
+- Stuck? Copy the sample recipe from the website and adapt it
+
+**7 minutes.**
+
+<!--
+Just the writing for now: no running the recipe yet. Circulate and look for recipes that are too vague, such as "summarize this," and nudge people toward specifics: who reads the result, what format, what it should never do. Remind people they can write on the paper handout or type into the digital copy, and that the sample recipe on the website can be copied and adapted. Remind everyone to use a made-up or sanitized example unless they know their tool is approved for their data. The seven minutes is a suggestion; adjust to the room.
+-->
+
+---
+
+# 4. Get set up
+
+Sign in to **Claude**, **Gemini**, or **Microsoft Copilot Chat** with your WashU account. Find:
+
+1. Where to **start a new chat**
+2. How to **attach a file**
+3. Where to **save a reusable assistant** (Claude Projects, Gemini Gems, Copilot agents)
+4. How to turn on **web search or research**
+
+Need help? Put a sticky note on your laptop.
+
+<!--
+0:25 to 0:30. Feature names and availability differ by tool and by what WashU has switched on, so do a dry run in each tool with a WashU login before the day and note the exact menu names. Especially check Claude Projects and Skills for students, Agent Builder in Copilot Chat, and Gemini Gems for each audience group. Recruit two or three confident people as peer helpers for sign-in questions. Confirm nobody is using real student records.
+-->
+
+---
+
+# Try your recipe
+
+1. **Paste your recipe** into a new chat
+2. **Add a sample input.** Use a made-up or cleaned-up example
+3. **Send it** and read what comes back
+
+Next: is the result right? Use the questions on the next slide.
+
+<!--
+Now that everyone is signed in, they run the recipe they just wrote. Circulate and help with the mechanics: pasting into a new chat, attaching a file if the sample is a file, and finding where the answer appears. Remind everyone to use a made-up or sanitized example unless they know their tool is approved for their data. Allow about five minutes. Anyone who finishes early can move on to reading the result critically.
 -->
 
 ---
@@ -268,26 +328,44 @@ Circulate and help anyone who is stuck. Recruit peer helpers for the next block:
 
 | Track | What to do |
 | --- | --- |
-| **A. Save it** | Turn the recipe into a reusable assistant and run it on a second, different sample |
-| **B. Give it material and tools** | Add reference files, turn on web search or research, connect a source you are allowed to use, and ask it to show its plan before it acts |
-| **C. Chain and automate** | Split the task into stages with a human checkpoint between each; explore recurring runs if your tool allows it |
+| **A. Save it as an agent** | Turn your recipe into a reusable assistant, then run it on a second sample |
+| **B. Add material and tools** | Attach reference files, turn on web search, ask it to show its plan first |
+| **C. Chain steps** | Split the task into stages, with you checking between each |
+| **D. Share it as a skill** | Package your recipe so a colleague can use it |
 
 <!--
-0:55 to 1:15. Say "if your tool supports it" for tracks B and C, since features differ by tool. Ask a couple of participants to report back on what they found. Seed each table with one confident person as a peer helper. Offer a stretch challenge for fast finishers: add a second stage, or make the workflow handle a messy input.
+0:55 to 1:15. Say "if your tool supports it" for every track, since features differ by tool and by what WashU has switched on. Track A: Claude Projects, Gemini Gems, or Copilot agents are where a saved recipe lives; run it on a second, different sample to see whether it holds up. Track B: reference files, web search or research mode, and asking the tool to show its plan before it acts. Track C: break the task into stages with a human checkpoint between each; explore recurring runs only if the tool allows it. Track D: a skill is a saved set of instructions (plus optional files) that can be shared with other people, so a colleague gets the same result without rewriting your recipe. The demo's advising skill is a real example. Ask a couple of participants to report back on what they found. Seed each table with one confident person as a peer helper. Stretch challenge for fast finishers: add a second stage, or make the workflow handle a messy input.
+-->
+
+---
+
+# Beyond today: connecting your other tools
+
+AI tools can also be **connected** to the places your work lives:
+
+- Email and calendar
+- Shared drives and documents, such as OneDrive, Google Drive, and SharePoint
+- Chat tools, such as Slack and Teams
+- Code repositories, such as GitHub
+
+Connecting tools is a bigger topic, and **outside today's tutorial**.
+
+<!--
+Keep this to about a minute. These are examples only; we are not setting any of them up today. The reason it is out of scope: each connection gives a tool access to real data and sometimes the ability to act on it, so it needs a decision about what is approved at WashU, what data it can see, and who is accountable. Point people to WashU IT for what is approved before they connect anything, and tie it back to the ground rules: know what your tool is approved for before you share data, and anything that sends, deletes, submits, or spends needs a human approval step.
 -->
 
 ---
 
 # 6. Trust, check, stop
 
-Three questions to ask of any workflow:
+Three things to keep in mind for any workflow:
 
-1. What happens if this output is **wrong and I do not notice**?
-2. What **data** did I give it?
-3. Who is **accountable** for the result?
+1. **YOU** are accountable for the result
+2. What happens if this output is **wrong and I do not notice**?
+3. What **data** did I give it?
 
 <!--
-1:15 to 1:25. Talk for about two minutes, then move to the break-it exercise on the next slide. The person who uses the output owns it. That matters for grading, advising, reports, and anything sent under a name.
+1:15 to 1:25. Talk for about two minutes, then move to the break-it exercise on the next slide. Start with the first item and say it with weight: YOU are accountable for the result, whichever tool produced it. The person who uses the output owns it. That matters for grading, advising, reports, and anything sent under a name. Then the two questions: what happens if the output is wrong and you do not notice, and what data did you give the tool.
 -->
 
 ---
@@ -308,18 +386,6 @@ Some tasks should stay human: judgment about people, sensitive conversations, an
 
 ---
 
-# 7. Share and next steps
-
-- **Two or three volunteers:** show your task and result in 60 seconds
-- **Take home:** your recipe template and the three trust questions
-- **Your next step:** pick a second task and repeat
-
-<!--
-1:25 to 1:30. Hand out or link the take-home sheet. Add where to get help at WashU and a feedback link here once you have them.
--->
-
----
-
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
@@ -327,6 +393,9 @@ Some tasks should stay human: judgment about people, sensitive conversations, an
 
 Pick your next task: small, recurring, with a clear "done."
 
+Slides, handouts, and the sample recipe:
+[genai-cs-ed.github.io/ai_agents_tutorial](https://genai-cs-ed.github.io/ai_agents_tutorial/)
+
 <!--
-Thank everyone. Remind them where the slides and handouts will live afterward.
+Thank everyone. Take-home: the recipe template and the three trust reminders (YOU are accountable, what if it is wrong and I do not notice, what data did I give it). Their next step is to pick a second task and repeat. Say the website address out loud: it has the slides, all the handouts, and the sample recipe. Add where to get help at WashU and a feedback link here once you have them.
 -->

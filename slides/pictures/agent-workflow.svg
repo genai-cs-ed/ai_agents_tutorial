@@ -5,8 +5,8 @@
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8FBFF"/><stop offset="1" stop-color="#F7F4FF"/></linearGradient>
     <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2E6BE6"/><stop offset="1" stop-color="#7752D8"/></linearGradient>
     <filter id="shadow" x="-25%" y="-30%" width="150%" height="170%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#172B4D" flood-opacity=".12"/></filter>
-    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M1 1 L11 6 L1 11 Z" fill="#5D76B7"/></marker>
-    <marker id="failArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M1 1 L11 6 L1 11 Z" fill="#D95B56"/></marker>
+    <marker id="arrow" viewBox="0 0 12 12" refX="1" refY="6" markerUnits="userSpaceOnUse" markerWidth="28" markerHeight="28" orient="auto"><path d="M1 1 L11 6 L1 11 Z" fill="#5D76B7"/></marker>
+    <marker id="failArrow" viewBox="0 0 12 12" refX="1" refY="6" markerUnits="userSpaceOnUse" markerWidth="28" markerHeight="28" orient="auto"><path d="M1 1 L11 6 L1 11 Z" fill="#D95B56"/></marker>
   </defs>
   <rect width="1920" height="1080" fill="url(#background)"/>
   <circle cx="1760" cy="100" r="250" fill="#E1EDFF" opacity=".65"/><circle cx="135" cy="970" r="260" fill="#EEE6FF" opacity=".55"/>
@@ -17,14 +17,14 @@
   </g>
 
   <!-- return line: deliberately above every card and only returns to Plan -->
-  <path d="M1330 355 L1330 268 Q1330 232 1294 232 L662 232 Q626 232 626 268 L626 300" fill="none" stroke="#D95B56" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 14" marker-end="url(#failArrow)"/>
+  <path d="M1330 355 L1330 268 Q1330 232 1294 232 L662 232 Q626 232 626 268 L626 328" fill="none" stroke="#D95B56" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 14" marker-end="url(#failArrow)"/>
   <g font-family="Avenir Next, Arial, sans-serif"><rect x="856" y="262" width="254" height="48" rx="24" fill="#FFF0EE"/><text x="983" y="294" text-anchor="middle" font-size="19" font-weight="700" fill="#BC4843">check fails → revise plan</text></g>
 
   <!-- straight workflow connectors, placed in the gap between cards -->
-  <path d="M425 455 L505 455" fill="none" stroke="#5D76B7" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M785 455 L865 455" fill="none" stroke="#5D76B7" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M1145 455 L1225 455" fill="none" stroke="#5D76B7" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
-  <path d="M1505 455 L1585 455" fill="none" stroke="#5D76B7" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M425 455 L478 455" fill="none" stroke="#5D76B7" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M785 455 L838 455" fill="none" stroke="#5D76B7" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M1145 455 L1198 455" fill="none" stroke="#5D76B7" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M1505 455 L1558 455" fill="none" stroke="#5D76B7" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
 
   <!-- cards -->
   <g filter="url(#shadow)">
