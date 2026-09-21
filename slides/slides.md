@@ -85,8 +85,9 @@ Say this early, not at the end. This audience handles student records, health in
 
 ---
 
-![bg contain left:80%](pictures/WashUAITools.png)
+![bg contain](pictures/WashUAITools.png)
 
+<!-- _header: "" -->
 <!-- _paginate: false -->
 <!-- _footer: "" -->
 
@@ -170,6 +171,7 @@ Cautions before the day: feature names and availability change and depend on you
 
 ![bg contain](pictures/agent-workflow.svg)
 
+<!-- _header: "" -->
 <!-- _paginate: false -->
 <!-- _footer: "" -->
 
@@ -334,7 +336,7 @@ This table is also on page 2 of the handout. Five minutes to fix and run again, 
 
 # Break
 
-5 minutes. Back at 0:55. Keep your recipe open.
+Keep your recipe open.
 
 <!--
 Circulate and help anyone who is stuck. Recruit peer helpers for the next block: ask two or three confident people at each table to help neighbors.
