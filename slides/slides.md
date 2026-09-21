@@ -3,6 +3,26 @@ marp: true
 theme: default
 paginate: true
 footer: "AI Agents Tutorial · WashU AI Perspectives Week 2026"
+header: "![w:180](pictures/qrcode.png)"
+style: |
+  section > header {
+    top: 18px;
+    right: 26px;
+    left: auto;
+    height: auto;
+    width: auto;
+  }
+  section > header img {
+    display: block;
+    margin: 0;
+  }
+  section > header::after {
+    content: "Slides and handouts";
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+  }
 ---
 
 <!-- _class: lead -->
@@ -65,7 +85,7 @@ Say this early, not at the end. This audience handles student records, health in
 
 ---
 
-![bg contain](pictures/WashUAITools.png)
+![bg contain left:80%](pictures/WashUAITools.png)
 
 <!-- _paginate: false -->
 <!-- _footer: "" -->
