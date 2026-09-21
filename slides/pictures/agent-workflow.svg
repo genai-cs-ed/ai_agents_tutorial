@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">The agent loop and autonomy spectrum</title>
+  <desc id="desc">The workflow proceeds from Goal to Plan to Act with tools to Check the result to Hand back to you. A failed check loops back to Plan. A spectrum below runs from Single prompt through Saved instructions and Tool-using workflow to Runs on its own, with the first three highlighted.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8FBFF"/><stop offset="1" stop-color="#F7F4FF"/></linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2E6BE6"/><stop offset="1" stop-color="#7752D8"/></linearGradient>
+    <filter id="shadow" x="-25%" y="-30%" width="150%" height="170%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#172B4D" flood-opacity=".12"/></filter>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M1 1 L11 6 L1 11 Z" fill="#5D76B7"/></marker>
+    <marker id="failArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" orient="auto"><path d="M1 1 L11 6 L1 11 Z" fill="#D95B56"/></marker>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#background)"/>
+  <circle cx="1760" cy="100" r="250" fill="#E1EDFF" opacity=".65"/><circle cx="135" cy="970" r="260" fill="#EEE6FF" opacity=".55"/>
+
+  <g font-family="Avenir Next, Arial, sans-serif">
+    <text x="960" y="105" text-anchor="middle" font-size="58" font-weight="700" fill="#172B4D">The agent loop</text>
+    <text x="960" y="151" text-anchor="middle" font-size="24" fill="#5C6D89">The goal stays fixed; the plan improves when a check finds a problem.</text>
+  </g>
+
+  <!-- return line: deliberately above every card and only returns to Plan -->
+  <path d="M1330 355 L1330 268 Q1330 232 1294 232 L662 232 Q626 232 626 268 L626 300" fill="none" stroke="#D95B56" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 14" marker-end="url(#failArrow)"/>
+  <g font-family="Avenir Next, Arial, sans-serif"><rect x="856" y="262" width="254" height="48" rx="24" fill="#FFF0EE"/><text x="983" y="294" text-anchor="middle" font-size="19" font-weight="700" fill="#BC4843">check fails → revise plan</text></g>
+
+  <!-- straight workflow connectors, placed in the gap between cards -->
+  <path d="M425 455 L505 455" fill="none" stroke="#5D76B7" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M785 455 L865 455" fill="none" stroke="#5D76B7" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M1145 455 L1225 455" fill="none" stroke="#5D76B7" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M1505 455 L1585 455" fill="none" stroke="#5D76B7" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <!-- cards -->
+  <g filter="url(#shadow)">
+    <rect x="145" y="355" width="280" height="200" rx="30" fill="#FFF"/>
+    <rect x="505" y="355" width="280" height="200" rx="30" fill="#FFF"/>
+    <rect x="865" y="355" width="280" height="200" rx="30" fill="#FFF"/>
+    <rect x="1225" y="355" width="280" height="200" rx="30" fill="#FFF"/>
+    <rect x="1585" y="355" width="190" height="200" rx="30" fill="url(#purple)"/>
+  </g>
+  <g font-family="Avenir Next, Arial, sans-serif">
+    <circle cx="202" cy="415" r="27" fill="#E7F0FF"/><path d="M190 416h24M202 404v24" stroke="#2E6BE6" stroke-width="4" stroke-linecap="round"/>
+    <text x="242" y="423" font-size="33" font-weight="700" fill="#172B4D">Goal</text><text x="180" y="492" font-size="20" fill="#62728F">What should change?</text>
+    <circle cx="562" cy="415" r="27" fill="#EEE8FF"/><path d="M550 422l8-15 8 8 8-15" fill="none" stroke="#7752D8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="602" y="423" font-size="33" font-weight="700" fill="#172B4D">Plan</text><text x="540" y="492" font-size="20" fill="#62728F">Choose an approach</text>
+    <circle cx="922" cy="415" r="27" fill="#E2F8F2"/><path d="M910 409h24v16h-24zM916 409v-7h12v7" fill="none" stroke="#198F79" stroke-width="4" stroke-linejoin="round"/>
+    <text x="962" y="411" font-size="30" font-weight="700" fill="#172B4D">Act with</text><text x="962" y="448" font-size="30" font-weight="700" fill="#172B4D">tools</text><text x="900" y="510" font-size="20" fill="#62728F">Do the useful work</text>
+    <circle cx="1282" cy="415" r="27" fill="#FFF2D9"/><path d="M1270 416l8 8 17-20" fill="none" stroke="#D18A16" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1322" y="411" font-size="29" font-weight="700" fill="#172B4D">Check the</text><text x="1322" y="448" font-size="29" font-weight="700" fill="#172B4D">result</text><text x="1260" y="510" font-size="20" fill="#62728F">Did it meet the goal?</text>
+    <circle cx="1680" cy="418" r="26" fill="#FFF" opacity=".20"/><path d="M1668 423c4-9 20-9 24 0M1674 411a6 6 0 1 0 12 0 6 6 0 0 0-12 0" fill="none" stroke="#FFF" stroke-width="3.5" stroke-linecap="round"/>
+    <text x="1680" y="475" text-anchor="middle" font-size="23" font-weight="700" fill="#FFF">Hand back</text><text x="1680" y="505" text-anchor="middle" font-size="23" font-weight="700" fill="#FFF">to you</text>
+  </g>
+
+  <g font-family="Avenir Next, Arial, sans-serif">
+    <text x="960" y="686" text-anchor="middle" font-size="31" font-weight="700" fill="#394D75">A spectrum, not a switch</text>
+    <text x="960" y="725" text-anchor="middle" font-size="21" fill="#61718E">Most useful work today sits in the middle: a human sets the goal and checks the result.</text>
+  </g>
+  <!-- spectrum -->
+  <g transform="translate(250 805)" font-family="Avenir Next, Arial, sans-serif">
+    <rect width="1420" height="24" rx="12" fill="#D8E0EF"/>
+    <rect width="1065" height="24" rx="12" fill="url(#purple)"/>
+    <g font-size="19" font-weight="700" fill="#344967">
+      <circle cx="0" cy="12" r="15" fill="#2E6BE6"/><text x="0" y="-25" text-anchor="middle">Single prompt</text>
+      <circle cx="355" cy="12" r="15" fill="#4862D8"/><text x="355" y="-25" text-anchor="middle">Saved instructions</text>
+      <circle cx="710" cy="12" r="15" fill="#6A56D7"/><text x="710" y="-25" text-anchor="middle">Tool-using workflow</text>
+      <circle cx="1420" cy="12" r="15" fill="#9AA8C2"/><text x="1420" y="-25" text-anchor="middle">Runs on its own</text>
+    </g>
+    <text x="532" y="70" text-anchor="middle" font-size="20" font-weight="800" fill="#5F43BB">TODAY: BUILD THE FIRST THREE</text>
+  </g>
+</svg>
