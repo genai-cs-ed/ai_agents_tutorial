@@ -34,7 +34,7 @@ style: |
 Hands-on tutorial · WashU AI Perspectives Week 2026
 
 <!--
-Welcome. Set expectations: this is a tutorial, so most of the 90 minutes is spent doing, not listening. About 30 minutes of talk and demo, about 60 minutes building. Ask people to have a laptop open and to be signed in to Claude, Gemini, or Microsoft Copilot Chat with their WashU account.
+Welcome. Set expectations: this is a tutorial, so most of the 90 minutes is spent doing, not listening. About 30 minutes of talk and demo, about 60 minutes building. Ask people to have a laptop open and to be signed in to Claude or Gemini with their WashU account.
 -->
 
 ---
@@ -151,20 +151,19 @@ Leave this up while people work. If anyone is still stuck, offer examples. Facul
 
 # How you reach a chatbot vs an agent
 
-| | Chat window | Agent-style features |
-| --- | --- | --- |
-| **Claude** | New chat | Projects, Research, Skills |
-| **Gemini** | New chat | Gems, Deep Research |
-| **Copilot Chat** | Chat | Agents |
+| | Chat window | Agent-style features | On your computer |
+| --- | --- | --- | --- |
+| **Claude** | New chat | Projects, Research, Skills | Cowork, Claude Code |
+| **Gemini** | New chat | Gems, Deep Research | Antigravity |
 
 **Often it is the same tool with more turned on:** saved instructions, files, the web, and connected tools.
 
-Some agents are separate apps that work on your files, such as Claude Code and Cowork.
+**Antigravity** is a separate download and is not on WashU's approved tools list. Use made-up data with it.
 
 <!--
-Keep this short. The point: you do not go to a different website to get an agent. You open the same tool you already use and turn on or set up more. Chat window = the plain conversation. Agent-style features = things that let it follow saved instructions, use files, search the web, or run a multi-step job on its own. Claude: Projects (saved instructions plus files), Research, Skills; Cowork and Claude Code are separate apps that work on files and folders on your computer (both are listed on the WashU tools page). Gemini: Gems (saved instructions) and Deep Research (in the text box menu, it makes a plan, browses, and writes a report). Copilot Chat: agents, built with Agent Builder or Copilot Studio.
+Keep this short. The point: you do not go to a different website to get an agent. You open the same tool you already use and turn on or set up more. Chat window = the plain conversation. Agent-style features = things that let it follow saved instructions, use files, search the web, or run a multi-step job on its own. Agent on your computer = a separate app that works on files and folders on your computer. Claude: Projects (saved instructions plus files), Research, Skills; Cowork and Claude Code are the apps that work on your files (both are listed on the WashU tools page). Gemini: Gems (saved instructions) and Deep Research (in the text box menu, it makes a plan, browses, and writes a report). For Gemini to work as an agent on your computer you go through Google Antigravity, which is a code editor (a modified version of Visual Studio Code) with Gemini agents built in. That means it is a developer tool and may feel technical for this audience, so treat it as "here is where Gemini's agent lives," not something everyone installs today.
 
-Cautions before the day: feature names and availability change and depend on your plan and on what WashU has switched on. Microsoft's documentation says Agent Builder needs a paid Microsoft 365 Copilot license, so check what a free WashU Copilot Chat account can actually do. Research in Claude may need a paid plan outside Claude Edu, so check with a student login. Do a dry run in each tool and fix this table to match. The Get set up block goes into the exact menu names.
+Cautions before the day: feature names and availability change and depend on your plan and on what WashU has switched on. Antigravity is a separate download, and I did not find it on WashU's tools page, so confirm whether it works with a WashU account and whether it is approved before anyone uses real data in it; the slide tells people to use made-up data. Research in Claude may need a paid plan outside Claude Edu, so check with a student login. Do a dry run in each tool and fix this table to match. The Get set up block goes into the exact menu names.
 -->
 
 ---
@@ -273,17 +272,17 @@ Just the writing for now: no running the recipe yet. Circulate and look for reci
 
 # 4. Get set up
 
-Sign in to **Claude**, **Gemini**, or **Microsoft Copilot Chat** with your WashU account. Find:
+Sign in to **Claude** or **Gemini** with your WashU account. Find:
 
 1. Where to **start a new chat**
 2. How to **attach a file**
-3. Where to **save a reusable assistant** (Claude Projects, Gemini Gems, Copilot agents)
+3. Where to **save a reusable assistant** (Claude Projects, Gemini Gems)
 4. How to turn on **web search or research**
 
 Need help? Put a sticky note on your laptop.
 
 <!--
-0:25 to 0:30. Feature names and availability differ by tool and by what WashU has switched on, so do a dry run in each tool with a WashU login before the day and note the exact menu names. Especially check Claude Projects and Skills for students, Agent Builder in Copilot Chat, and Gemini Gems for each audience group. Recruit two or three confident people as peer helpers for sign-in questions. Confirm nobody is using real student records.
+0:25 to 0:30. Feature names and availability differ by tool and by what WashU has switched on, so do a dry run in each tool with a WashU login before the day and note the exact menu names. Especially check Claude Projects and Skills for students and Gemini Gems for each audience group. Recruit two or three confident people as peer helpers for sign-in questions. Confirm nobody is using real student records.
 -->
 
 ---
@@ -356,7 +355,7 @@ Circulate and help anyone who is stuck. Recruit peer helpers for the next block:
 | **D. Share it as a skill** | Package your recipe so a colleague can use it |
 
 <!--
-0:55 to 1:15. Say "if your tool supports it" for every track, since features differ by tool and by what WashU has switched on. Track A: Claude Projects, Gemini Gems, or Copilot agents are where a saved recipe lives; run it on a second, different sample to see whether it holds up. Track B: reference files, web search or research mode, and asking the tool to show its plan before it acts. Track C: break the task into stages with a human checkpoint between each; explore recurring runs only if the tool allows it. Track D: a skill is a saved set of instructions (plus optional files) that can be shared with other people, so a colleague gets the same result without rewriting your recipe. The demo's advising skill is a real example. Ask a couple of participants to report back on what they found. Seed each table with one confident person as a peer helper. Stretch challenge for fast finishers: add a second stage, or make the workflow handle a messy input.
+0:55 to 1:15. Say "if your tool supports it" for every track, since features differ by tool and by what WashU has switched on. Track A: Claude Projects or Gemini Gems are where a saved recipe lives; run it on a second, different sample to see whether it holds up. Track B: reference files, web search or research mode, and asking the tool to show its plan before it acts. Track C: break the task into stages with a human checkpoint between each; explore recurring runs only if the tool allows it. Track D: a skill is a saved set of instructions (plus optional files) that can be shared with other people, so a colleague gets the same result without rewriting your recipe. The demo's advising skill is a real example. Ask a couple of participants to report back on what they found. Seed each table with one confident person as a peer helper. Stretch challenge for fast finishers: add a second stage, or make the workflow handle a messy input.
 -->
 
 ---

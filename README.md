@@ -2,7 +2,7 @@
 
 Materials for a 90-minute hands-on tutorial on AI agents for faculty, staff, and students, presented as part of WashU AI Perspectives Week 2026.
 
-Participants pick a repetitive task of their own, write it as a "recipe" an AI tool can follow, and try it in Claude, Gemini, or Microsoft Copilot Chat.
+Participants pick a repetitive task of their own, write it as a "recipe" an AI tool can follow, and try it in Claude or Gemini.
 
 ## Slides
 
