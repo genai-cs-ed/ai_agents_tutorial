@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Cowork Reference Sheet | AI Agents Tutorial</title>
+<meta name="description" content="How to set up and use Claude Cowork for non-coding agent workflows: instructions, folders, prompts, scheduling, and tips.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f7f8;
+    --card: #ffffff;
+    --text: #1f2328;
+    --muted: #59636e;
+    --border: #d8dde2;
+    --accent: #a51417;
+    --accent-strong: #8a1013;
+    --accent-soft: #fbeaea;
+    --on-accent: #ffffff;
+    --shadow: 0 1px 2px rgba(20, 24, 28, .06), 0 4px 16px rgba(20, 24, 28, .06);
+    --shadow-hover: 0 2px 4px rgba(20, 24, 28, .08), 0 10px 28px rgba(20, 24, 28, .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1013;
+      --surface: #14171b;
+      --card: #191d22;
+      --text: #e8eaed;
+      --muted: #a3acb6;
+      --border: #2b3138;
+      --accent: #ef7276;
+      --accent-strong: #f59a9d;
+      --accent-soft: #2a1a1c;
+      --on-accent: #1a0a0b;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+      --shadow-hover: 0 8px 28px rgba(0, 0, 0, .55);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, .btn:focus-visible, .card:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  .wrap { width: min(1080px, 100% - 48px); margin-inline: auto; }
+
+  /* Top bar */
+  .topbar { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  .brand { font-weight: 700; color: var(--text); text-decoration: none; font-size: 15px; letter-spacing: .01em; }
+  .brand span { color: var(--accent); }
+  nav { display: flex; gap: 22px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; }
+  nav a:hover { color: var(--text); }
+
+  
+  .doc { padding: 48px 0 72px; }
+  .doc .wrap { max-width: 860px; }
+  .back { display: inline-block; margin: 0 0 20px; font-size: 15px; font-weight: 600; text-decoration: none; }
+  .doc h1 { font-size: clamp(30px, 4.6vw, 42px); max-width: none; margin: 0 0 18px; }
+  .doc h2 { margin: 44px 0 14px; padding-top: 8px; font-size: clamp(22px, 3vw, 28px); }
+  .doc h3 { margin: 28px 0 8px; font-size: 19px; }
+  .doc hr { border: 0; border-top: 1px solid var(--border); margin: 36px 0 0; }
+  .doc table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; display: block; overflow-x: auto; }
+  .doc th, .doc td { text-align: left; vertical-align: top; padding: 10px 14px; border: 1px solid var(--border); }
+  .doc th { background: var(--surface); }
+  .doc pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; overflow-x: auto; font-size: 14.5px; line-height: 1.5; }
+  .doc code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; background: var(--surface); padding: 1px 5px; border-radius: 4px; }
+  .doc pre code { background: none; padding: 0; }
+  .doc blockquote { margin: 12px 0; padding: 4px 18px; border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: 0 10px 10px 0; }
+  .doc li { margin: 6px 0; }
+  .dl { margin: 0 0 8px; }
+  @media print { .topbar, footer, .back, .dl { display: none; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">AI Agents <span>Tutorial</span></a>
+    <nav aria-label="Site"><a href="../index.html#materials">Materials</a><a href="../index.html#tools">Tools</a></nav>
+  </div>
+</header>
+<main class="doc">
+  <div class="wrap">
+    <a class="back" href="../index.html#materials">&larr; Back to materials</a>
+    <p class="dl"><a href="claude-reference-sheet.md" download>Download this sheet as Markdown</a></p>
+<h1>Claude Cowork: Reference Sheet for Non-Coding Workflows</h1>
+<p>A practical guide for using Claude Cowork on your computer for <strong>research, writing, policy review, academic advising, data analysis, and everyday knowledge work</strong>.</p>
+<hr />
+<h2>Before You Start</h2>
+<ul>
+<li><strong>Sign in</strong> at claude.ai with your WashU email and WashU Key. Look at the top of the left sidebar: it should say <strong>Claude Edu</strong>. Cowork is available in Claude Edu, not in Claude Secure.</li>
+<li><strong>Use the Claude desktop app.</strong> Cowork can only read and write files on your computer through the desktop app, and the app must stay open and connected while a task that uses your files or the browser is running.</li>
+<li><strong>Check your plan.</strong> Cowork is offered on paid plans (Pro, Max, Team, Enterprise). WashU faculty and staff use a paid Claude Edu plan; students get Claude Edu free after completing the AI Literacy module. If you do not see Cowork in the message box, ask your department or WashU IT.</li>
+<li><strong>Mind your data.</strong> Claude Edu is not approved for protected health information. If you are unsure what you may share, use made-up data.</li>
+</ul>
+<hr />
+<h2>1. Where to Provide Your Instructions</h2>
+<p>You do <strong>not</strong> need to re-explain your role, tone, or rules in every message. Cowork reads saved instructions at several levels:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Scope</th>
+<th style="text-align: left;">Where to Set It</th>
+<th style="text-align: left;">What Goes Here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Global Instructions</strong></td>
+<td style="text-align: left;"><strong>Settings &gt; Cowork &gt; Edit</strong> next to Global instructions (in the newer app layout: <strong>Instructions for Claude</strong> under <strong>Settings &gt; General</strong>)</td>
+<td style="text-align: left;">Personal defaults for every task: your role, default reading level, preferred tone</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Folder Instructions</strong></td>
+<td style="text-align: left;">Added when you select a local folder on the desktop app</td>
+<td style="text-align: left;">Guidelines for one project folder: writing style, formatting standards, source citation rules</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Project Instructions</strong></td>
+<td style="text-align: left;"><strong>Projects</strong> in the left sidebar</td>
+<td style="text-align: left;">A project's own files, context, instructions, and memory, kept together</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Live Learning</strong></td>
+<td style="text-align: left;">Tell Claude in chat: <em>"Add this rule to my folder instructions."</em></td>
+<td style="text-align: left;">Saves a correction so it is applied next time. Claude can also update folder instructions on its own during a session.</td>
+</tr>
+</tbody>
+</table>
+<h3>Example Non-Coding Instructions</h3>
+<pre><code class="language-markdown"># Project Guidelines: Academic Research &amp; Advising
+
+## Role &amp; Voice
+- Act as an academic advisor and senior researcher.
+- Tone: Professional, encouraging, objective, and clear.
+
+## Rules &amp; Constraints
+- Always cite specific documents or page numbers when referencing requirements.
+- Never modify or overwrite original files (for example, the raw_transcripts folder); always save outputs as new files in the output folder.
+- Format schedules, comparisons, and unit counts as tables.
+
+## Workflow
+- For documents longer than 2 pages, propose an outline and wait for my review before writing.
+</code></pre>
+<hr />
+<h2>2. What Cowork Can Do Beyond Coding</h2>
+<p>Cowork works on your files, in a browser, and across your connected apps:</p>
+<ul>
+<li><strong>Document and Transcript Analysis</strong>: Reads files in your selected folder to extract themes, find inconsistencies, or audit requirements.</li>
+<li><strong>Spreadsheets and Data</strong>: Creates Excel files with working formulas, conditional formatting, and multiple tabs, and summarizes data files.</li>
+<li><strong>Presentations and Reports</strong>: Builds slide decks from rough notes or meeting transcripts, and drafts reports and summaries.</li>
+<li><strong>Web Research</strong>: Combines web searches, articles, papers, and your own notes into a report with sources.</li>
+<li><strong>Browser Actions</strong>: Opens sites, reads pages, clicks, types, and fills in forms, using the browser built into the Claude desktop app.</li>
+<li><strong>Connected Apps</strong>: Uses connectors (add them from the <strong>+</strong> menu in the chat box or under <strong>Customize &gt; Connectors</strong>) to work across the apps you already use.</li>
+<li><strong>Scheduled Tasks</strong>: Runs a task on demand or automatically on a schedule (see Section 5).</li>
+</ul>
+<hr />
+<h2>3. Supplying Context: Folders and Files</h2>
+<p>Cowork does not use <code>@</code> mentions. Instead, you give it context in two ways:</p>
+<ul>
+<li><strong>Select a folder</strong> on the desktop app. Claude can read from and write to that folder without you uploading or downloading anything. Put the files for one job in one folder.</li>
+<li><strong>Refer to files by name</strong> in your message. Claude will find them in the folder.</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><strong>transcript.txt</strong>: <em>"Extract the main action items and unresolved questions."</em></li>
+<li><strong>policy.pdf</strong>: <em>"Audit our draft proposal in draft.md against Section 4 of this policy."</em></li>
+<li><strong>survey_results.csv</strong>: <em>"Summarize the top 3 complaints from participants."</em></li>
+<li><strong>The whole folder</strong>: <em>"Review all documents in this folder and create an index table."</em></li>
+</ul>
+<p>Cowork will ask your permission before permanently deleting any file.</p>
+<hr />
+<h2>4. The 3-Part Prompt Formula for Knowledge Work</h2>
+<p><strong>Deliverable + Source Context + Format / Constraints</strong></p>
+<h3>Example Prompts</h3>
+<ul>
+<li>
+<p><strong>Meeting / Interview Synthesis</strong>:</p>
+<blockquote>
+<p><em>"Read sample-transcript.txt. Extract action items, key decisions, and any unresolved questions into a table with columns: 'Topic', 'Decision/Action', 'Owner', and 'Next Steps'."</em></p>
+</blockquote>
+</li>
+<li>
+<p><strong>Grant / Proposal Writing</strong>:</p>
+<blockquote>
+<p><em>"Using notes.txt and grant_criteria.pdf, draft the 'Project Methodology' section. Write in an authoritative academic tone, limit it to 800 words, and structure it with bolded subheadings."</em></p>
+</blockquote>
+</li>
+<li>
+<p><strong>Curriculum / Project Planning</strong>:</p>
+<blockquote>
+<p><em>"Review degree_requirements.pdf and my_credits.txt. Build a 4-semester graduation roadmap, ensuring all general education and major requirements are satisfied. Propose an outline first before writing the full document."</em></p>
+</blockquote>
+</li>
+</ul>
+<hr />
+<h2>5. Essential Controls and Features for Knowledge Work</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">How to Use It for Non-Coding Work</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>/schedule</strong></td>
+<td style="text-align: left;">Type it in chat to set up a recurring task <em>(for example, "Check this website every Monday morning and summarize what changed")</em>. You can also click <strong>Scheduled</strong> in the left sidebar, then create a new task with Claude or set it up manually. Schedules can be hourly, daily, weekly, weekdays, or manual.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Approval mode</strong></td>
+<td style="text-align: left;">The mode selector in the chat box controls when Claude asks first. <strong>Manual</strong>: you approve each action. <strong>Auto</strong>: Claude works without pausing and reviews each action for safety. <strong>Skip</strong>: no pausing and no automatic checks. Use Manual while you are learning.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Projects</strong></td>
+<td style="text-align: left;">Keep a task's files, instructions, scheduled tasks, and memory together. Start one from <strong>Projects</strong> in the left sidebar.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Connectors</strong></td>
+<td style="text-align: left;">Let Claude read from and act in your other apps. Add them under <strong>Customize &gt; Connectors</strong>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Plugins and Skills</strong></td>
+<td style="text-align: left;">Bundles of instructions and tools that teach Claude a repeatable workflow, such as an advising checklist.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Interview me (a prompt, not a command)</strong></td>
+<td style="text-align: left;">Ask: <em>"Before you write anything, interview me with questions to flesh out this outline."</em></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. Pro Tips for Daily Use</h2>
+<ol>
+<li><strong>Ask for Outlines First</strong>: For long essays, articles, or reports, ask Claude: <em>"Give me an outline first, and wait for my feedback before writing the full draft."</em></li>
+<li><strong>Review Before You Approve</strong>: Stay in Manual mode until you trust a workflow, and do not use Skip mode with files you cannot replace.</li>
+<li><strong>Keep Raw Files Untouched</strong>: Instruct Claude: <em>"Do not edit my original files; save all edits as draft_v2.md or in an outputs folder."</em></li>
+<li><strong>Group Related Work into One Task</strong>: A single well-described task uses less of your usage limit than many small ones.</li>
+<li><strong>Keep the App Open</strong>: Tasks that use your files or the browser need the Claude desktop app open and connected.</li>
+<li><strong>Check the Result</strong>: Read what Claude produced against your source files before you use it. You are accountable for the final work.</li>
+</ol>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <span>AI Agents Tutorial &middot; WashU AI Perspectives Week 2026</span>
+    <a href="https://github.com/genai-cs-ed/ai_agents_tutorial">Source on GitHub</a>
+  </div>
+</footer>
+</body>
+</html>

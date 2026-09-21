@@ -65,7 +65,7 @@ Read the pitch line: "Bring one task you do over and over. Leave with a first dr
 6. Trust, check, stop
 
 <!--
-Quick pass over the plan. Point out that every block ends with participants doing something, never with a slide. There is a short break after block 4. Buffer: if the room runs slow, cut the Level up tracks to the first two and turn Trust, check, stop into a short talk. If it runs fast, give people longer on the Level up tracks.
+Quick pass over the plan. Point out that every block ends with participants doing something, never with a slide. Buffer: if the room runs slow, cut the Level up tracks to the first two and turn Trust, check, stop into a short talk. If it runs fast, give people longer on the Level up tracks.
 -->
 
 ---
@@ -153,15 +153,15 @@ Leave this up while people work. If anyone is still stuck, offer examples. Facul
 
 | | Chat window | Agent-style features | On your computer |
 | --- | --- | --- | --- |
-| **Claude** | New chat | Projects, Research, Skills | Cowork, Claude Code |
-| **Gemini** | New chat | Gems, Deep Research | Antigravity |
+| **Claude** | New chat | Projects, Research, Skills | Claude desktop, Claude Code |
+| **Gemini** | New chat | Gems, Deep Research | Antigravity app, Gemini CLI |
 
 **Often it is the same tool with more turned on:** saved instructions, files, the web, and connected tools.
 
-**Antigravity** is a separate download and is not on WashU's approved tools list. Use made-up data with it.
+The **Antigravity app** is a separate download, not on WashU's approved tools list. Use made-up data with it.
 
 <!--
-Keep this short. The point: you do not go to a different website to get an agent. You open the same tool you already use and turn on or set up more. Chat window = the plain conversation. Agent-style features = things that let it follow saved instructions, use files, search the web, or run a multi-step job on its own. Agent on your computer = a separate app that works on files and folders on your computer. Claude: Projects (saved instructions plus files), Research, Skills; Cowork and Claude Code are the apps that work on your files (both are listed on the WashU tools page). Gemini: Gems (saved instructions) and Deep Research (in the text box menu, it makes a plan, browses, and writes a report). For Gemini to work as an agent on your computer you go through Google Antigravity, which is a code editor (a modified version of Visual Studio Code) with Gemini agents built in. That means it is a developer tool and may feel technical for this audience, so treat it as "here is where Gemini's agent lives," not something everyone installs today.
+Keep this short. The point: you do not go to a different website to get an agent. You open the same tool you already use and turn on or set up more. Chat window = the plain conversation. Agent-style features = things that let it follow saved instructions, use files, search the web, or run a multi-step job on its own. Agent on your computer = a separate app that works on files and folders on your computer. Claude: Projects (saved instructions plus files), Research, Skills; the Claude desktop app (with Cowork) and Claude Code are the apps that work on your files (both are listed on the WashU tools page). Gemini: Gems (saved instructions, in the web interface) and Deep Research (in the text box menu, it makes a plan, browses, and writes a report). For Gemini to work as an agent on your computer you go through Google Antigravity, or through Gemini CLI, its command line interface. Antigravity is a code editor (a modified version of Visual Studio Code) with Gemini agents built in; Gemini CLI runs in a terminal window. Both are developer tools and may feel technical for this audience, so treat them as "here is where Gemini's agent lives," not something everyone installs today.
 
 Cautions before the day: feature names and availability change and depend on your plan and on what WashU has switched on. Antigravity is a separate download, and I did not find it on WashU's tools page, so confirm whether it works with a WashU account and whether it is approved before anyone uses real data in it; the slide tells people to use made-up data. Research in Claude may need a paid plan outside Claude Edu, so check with a student login. Do a dry run in each tool and fix this table to match. The Get set up block goes into the exact menu names.
 -->
@@ -179,6 +179,8 @@ Walk left to right through the top row: the goal stays fixed, the agent plans, a
 -->
 
 ---
+
+<!-- _header: "" -->
 
 # Live demo: a four-year plan, two ways
 
@@ -272,31 +274,31 @@ Just the writing for now: no running the recipe yet. Circulate and look for reci
 
 # 4. Get set up
 
-Sign in to **Claude** or **Gemini** with your WashU account. Find:
+Sign in with your WashU account and start a **project**.
 
-1. Where to **start a new chat**
-2. How to **attach a file**
-3. Where to **save a reusable assistant** (Claude Projects, Gemini Gems)
-4. How to turn on **web search or research**
+1. **Open your agent tool.** Claude: the desktop app, in **Cowork**. Gemini: **Antigravity**
+2. **Choose a project folder** and put your sample files in it
+3. **Save your recipe as instructions.** Claude: folder or project instructions. Gemini: a `GEMINI.md` file in the folder
+4. **Give it a task** and watch it work
 
-Need help? Put a sticky note on your laptop.
+Step-by-step guides are on the website under **Tool set-up guides**. Need help? Put a sticky note on your laptop.
 
 <!--
-0:25 to 0:30. Feature names and availability differ by tool and by what WashU has switched on, so do a dry run in each tool with a WashU login before the day and note the exact menu names. Especially check Claude Projects and Skills for students and Gemini Gems for each audience group. Recruit two or three confident people as peer helpers for sign-in questions. Confirm nobody is using real student records.
+0:25 to 0:30. The goal here is a project, not a plain chat: a folder the agent can work in, plus saved instructions. For Claude this is Cowork in the desktop app; select a local folder, then add folder instructions or start a project from Projects in the left sidebar. For Gemini it is Antigravity, a separate download from Google (a modified code editor): open a folder and put a GEMINI.md file in it. Antigravity is not on WashU's approved tools list, so everyone uses made-up data in it. If someone cannot install it, a Gemini Gem in the web interface is the fallback: it keeps saved instructions and uploaded files, but it cannot work on files on your computer. The reference sheets on the website (Tool set-up guides) walk through both. Feature names and availability differ by what WashU has switched on, so do a dry run in each tool with a WashU login before the day and note the exact menu names; check that students see Cowork in Claude Edu. Recruit two or three confident people as peer helpers for sign-in and installation questions. Confirm nobody is using real student records.
 -->
 
 ---
 
 # Try your recipe
 
-1. **Paste your recipe** into a new chat
+1. **Paste your recipe** into your project
 2. **Add a sample input.** Use a made-up or cleaned-up example
 3. **Send it** and read what comes back
 
 Next: is the result right? Use the questions on the next slide.
 
 <!--
-Now that everyone is signed in, they run the recipe they just wrote. Circulate and help with the mechanics: pasting into a new chat, attaching a file if the sample is a file, and finding where the answer appears. Remind everyone to use a made-up or sanitized example unless they know their tool is approved for their data. Allow about five minutes. Anyone who finishes early can move on to reading the result critically.
+Now that everyone is signed in, they run the recipe they just wrote. Circulate and help with the mechanics: pasting the recipe into your project, attaching a file if the sample is a file, and finding where the answer appears. Remind everyone to use a made-up or sanitized example unless they know their tool is approved for their data. Allow about five minutes. Anyone who finishes early can move on to reading the result critically.
 -->
 
 ---
@@ -325,20 +327,7 @@ Give people three minutes with this before they revise. Ask them to mark what is
 | Format is off | Describe the format, or paste a small example |
 
 <!--
-This table is also on page 2 of the handout. Five minutes to fix and run again, then ask for a show of hands: who got a better result the second time?
--->
-
----
-
-<!-- _class: lead -->
-<!-- _paginate: false -->
-
-# Break
-
-Keep your recipe open.
-
-<!--
-Circulate and help anyone who is stuck. Recruit peer helpers for the next block: ask two or three confident people at each table to help neighbors.
+This table is also on page 2 of the handout. Five minutes to fix and run again, then ask for a show of hands: who got a better result the second time? Then, before Level up, recruit peer helpers: ask two or three confident people at each table to help their neighbors, and circulate to help anyone who is stuck.
 -->
 
 ---
@@ -355,7 +344,7 @@ Circulate and help anyone who is stuck. Recruit peer helpers for the next block:
 | **D. Share it as a skill** | Package your recipe so a colleague can use it |
 
 <!--
-0:55 to 1:15. Say "if your tool supports it" for every track, since features differ by tool and by what WashU has switched on. Track A: Claude Projects or Gemini Gems are where a saved recipe lives; run it on a second, different sample to see whether it holds up. Track B: reference files, web search or research mode, and asking the tool to show its plan before it acts. Track C: break the task into stages with a human checkpoint between each; explore recurring runs only if the tool allows it. Track D: a skill is a saved set of instructions (plus optional files) that can be shared with other people, so a colleague gets the same result without rewriting your recipe. The demo's advising skill is a real example. Ask a couple of participants to report back on what they found. Seed each table with one confident person as a peer helper. Stretch challenge for fast finishers: add a second stage, or make the workflow handle a messy input.
+0:55 to 1:15. Say "if your tool supports it" for every track, since features differ by tool and by what WashU has switched on. Track A: in Claude, a Project or folder instructions is where a saved recipe lives; in Gemini, a Gem in the web interface, or a GEMINI.md file in the project folder in Antigravity; run it on a second, different sample to see whether it holds up. Track B: reference files, web search or research mode, and asking the tool to show its plan before it acts. Track C: break the task into stages with a human checkpoint between each; explore recurring runs only if the tool allows it. Track D: a skill is a saved set of instructions (plus optional files) that can be shared with other people, so a colleague gets the same result without rewriting your recipe. The demo's advising skill is a real example. Ask a couple of participants to report back on what they found. Seed each table with one confident person as a peer helper. Stretch challenge for fast finishers: add a second stage, or make the workflow handle a messy input.
 -->
 
 ---

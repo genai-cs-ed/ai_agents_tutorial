@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Antigravity Reference Sheet | AI Agents Tutorial</title>
+<meta name="description" content="How to set up and use Gemini through Antigravity for non-coding agent workflows: instructions, @ mentions, prompts, slash commands, and tips.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f7f8;
+    --card: #ffffff;
+    --text: #1f2328;
+    --muted: #59636e;
+    --border: #d8dde2;
+    --accent: #a51417;
+    --accent-strong: #8a1013;
+    --accent-soft: #fbeaea;
+    --on-accent: #ffffff;
+    --shadow: 0 1px 2px rgba(20, 24, 28, .06), 0 4px 16px rgba(20, 24, 28, .06);
+    --shadow-hover: 0 2px 4px rgba(20, 24, 28, .08), 0 10px 28px rgba(20, 24, 28, .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1013;
+      --surface: #14171b;
+      --card: #191d22;
+      --text: #e8eaed;
+      --muted: #a3acb6;
+      --border: #2b3138;
+      --accent: #ef7276;
+      --accent-strong: #f59a9d;
+      --accent-soft: #2a1a1c;
+      --on-accent: #1a0a0b;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+      --shadow-hover: 0 8px 28px rgba(0, 0, 0, .55);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, .btn:focus-visible, .card:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  .wrap { width: min(1080px, 100% - 48px); margin-inline: auto; }
+
+  /* Top bar */
+  .topbar { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  .brand { font-weight: 700; color: var(--text); text-decoration: none; font-size: 15px; letter-spacing: .01em; }
+  .brand span { color: var(--accent); }
+  nav { display: flex; gap: 22px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; }
+  nav a:hover { color: var(--text); }
+
+  
+  .doc { padding: 48px 0 72px; }
+  .doc .wrap { max-width: 860px; }
+  .back { display: inline-block; margin: 0 0 20px; font-size: 15px; font-weight: 600; text-decoration: none; }
+  .doc h1 { font-size: clamp(30px, 4.6vw, 42px); max-width: none; margin: 0 0 18px; }
+  .doc h2 { margin: 44px 0 14px; padding-top: 8px; font-size: clamp(22px, 3vw, 28px); }
+  .doc h3 { margin: 28px 0 8px; font-size: 19px; }
+  .doc hr { border: 0; border-top: 1px solid var(--border); margin: 36px 0 0; }
+  .doc table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; display: block; overflow-x: auto; }
+  .doc th, .doc td { text-align: left; vertical-align: top; padding: 10px 14px; border: 1px solid var(--border); }
+  .doc th { background: var(--surface); }
+  .doc pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; overflow-x: auto; font-size: 14.5px; line-height: 1.5; }
+  .doc code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; background: var(--surface); padding: 1px 5px; border-radius: 4px; }
+  .doc pre code { background: none; padding: 0; }
+  .doc blockquote { margin: 12px 0; padding: 4px 18px; border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: 0 10px 10px 0; }
+  .doc li { margin: 6px 0; }
+  .dl { margin: 0 0 8px; }
+  @media print { .topbar, footer, .back, .dl { display: none; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">AI Agents <span>Tutorial</span></a>
+    <nav aria-label="Site"><a href="../index.html#materials">Materials</a><a href="../index.html#tools">Tools</a></nav>
+  </div>
+</header>
+<main class="doc">
+  <div class="wrap">
+    <a class="back" href="../index.html#materials">&larr; Back to materials</a>
+    <p class="dl"><a href="antigravity-reference-sheet.md" download>Download this sheet as Markdown</a></p>
+<h1>Antigravity AI Agent: Reference Sheet for Non-Coding Workflows</h1>
+<p>A practical guide for using Antigravity on your computer for <strong>research, writing, policy review, academic advising, data analysis, and everyday knowledge work</strong>.</p>
+<hr />
+<h2>Before You Start</h2>
+<ul>
+<li><strong>Antigravity is a separate download.</strong> It is a free Google application and is not on WashU's approved AI tools list.</li>
+<li><strong>Use made-up data.</strong> Do not put student records, health information, or other sensitive material into Antigravity.</li>
+</ul>
+<hr />
+<h2>1. Where to Provide Your Project Instructions</h2>
+<p>You do <strong>not</strong> need to re-explain your role, tone, or rules in every message. Place a <strong><code>GEMINI.md</code></strong> file directly in your project folder, and Antigravity will automatically discover and apply it:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Scope</th>
+<th style="text-align: left;">Location</th>
+<th style="text-align: left;">What Goes Here</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Project Folder</strong> <em>(Standard)</em></td>
+<td style="text-align: left;"><strong><code>GEMINI.md</code></strong> in your project folder</td>
+<td style="text-align: left;">Persona, tone, writing style, formatting standards, source citation rules</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Subfolder</strong></td>
+<td style="text-align: left;"><code>reports/GEMINI.md</code> or <code>drafts/GEMINI.md</code></td>
+<td style="text-align: left;">Guidelines that apply only to specific folders (e.g., final reports vs. brainstorming notes)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Across Your Computer</strong></td>
+<td style="text-align: left;"><code>~/.gemini/config/</code> or App Settings</td>
+<td style="text-align: left;">Personal defaults (e.g., your bio, default reading level, preferred unit system)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Live Learning</strong></td>
+<td style="text-align: left;">Type <strong><code>/learn</code></strong> in chat</td>
+<td style="text-align: left;">Saves a correction or rule permanently so the agent remembers it next time</td>
+</tr>
+</tbody>
+</table>
+<h3>Example Non-Coding <code>GEMINI.md</code></h3>
+<pre><code class="language-markdown"># Project Guidelines: Academic Research &amp; Advising
+
+## Role &amp; Voice
+- Act as an academic advisor and senior researcher.
+- Tone: Professional, encouraging, objective, and clear.
+
+## Rules &amp; Constraints
+- Always cite specific documents or page numbers when referencing requirements.
+- Never modify or overwrite original files (e.g., `/raw_transcripts/`); always save outputs as new files in `/output/`.
+- Format schedules, comparisons, and unit counts as Markdown tables.
+
+## Workflow
+- For documents longer than 2 pages, propose an outline and wait for my review before writing.
+</code></pre>
+<hr />
+<h2>2. What Antigravity Can Do Beyond Coding</h2>
+<p>Antigravity operates directly on your computer's filesystem and tools:</p>
+<ul>
+<li><strong>Document &amp; Transcript Analysis</strong>: Reads PDFs, Word docs, text files, and transcripts to extract themes, find inconsistencies, or audit requirements.</li>
+<li><strong>Spreadsheets &amp; Data</strong>: Inspects CSVs/data files, computes totals, identifies outliers, and compiles summaries.</li>
+<li><strong>Live Web Research</strong>: Searches the web, reads current articles, and synthesizes findings with source links.</li>
+<li><strong>Diagrams &amp; Visuals</strong>: Generates workflow diagrams, organizational charts, and custom images.</li>
+<li><strong>Interactive Previews</strong>: Builds tabbed visual dashboards and interactive review widgets directly in the chat.</li>
+<li><strong>Automated Scheduling</strong>: Sets reminders, timers, or recurring daily/weekly background tasks (<code>/schedule</code>).</li>
+</ul>
+<hr />
+<h2>3. Supplying Context with <code>@</code> Mentions</h2>
+<p>Direct the agent to your local files using <code>@</code> in the chat input:</p>
+<ul>
+<li><strong><code>@transcript.txt</code></strong>: <em>"Extract the main action items and unresolved questions."</em></li>
+<li><strong><code>@policy.pdf</code></strong>: <em>"Audit our draft proposal in <code>@draft.md</code> against Section 4 of this policy."</em></li>
+<li><strong><code>@survey_results.csv</code></strong>: <em>"Summarize the top 3 complaints from participants."</em></li>
+<li><strong><code>@folder/</code></strong>: <em>"Review all documents in this folder and create an index table."</em></li>
+</ul>
+<hr />
+<h2>4. The 3-Part Prompt Formula for Knowledge Work</h2>
+<p><strong>Deliverable + Source Context + Format / Constraints</strong></p>
+<h3>Example Prompts:</h3>
+<ul>
+<li>
+<p><strong>Meeting / Interview Synthesis</strong>:</p>
+<blockquote>
+<p><em>"Read <code>@sample-transcript.txt</code>. Extract action items, key decisions, and any unresolved questions into a markdown table with columns: 'Topic', 'Decision/Action', 'Owner', and 'Next Steps'."</em></p>
+</blockquote>
+</li>
+<li>
+<p><strong>Grant / Proposal Writing</strong>:</p>
+<blockquote>
+<p><em>"Using <code>@notes.txt</code> and <code>@grant_criteria.pdf</code>, draft the 'Project Methodology' section. Write in an authoritative academic tone, limit it to 800 words, and structure it with bolded subheadings."</em></p>
+</blockquote>
+</li>
+<li>
+<p><strong>Curriculum / Project Planning</strong>:</p>
+<blockquote>
+<p><em>"Review <code>@degree_requirements.pdf</code> and <code>@my_credits.txt</code>. Build a 4-semester graduation roadmap, ensuring all general education and major requirements are satisfied. Propose an outline first before writing the full document."</em></p>
+</blockquote>
+</li>
+</ul>
+<hr />
+<h2>5. Essential Slash Commands for Knowledge Work</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Slash Command</th>
+<th style="text-align: left;">How to Use It for Non-Coding Work</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>/goal</strong></td>
+<td style="text-align: left;">Autonomous deep work <em>(e.g., "Read all 8 reports in this folder and compile a comprehensive 5-page synthesis")</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>/grill-me</strong></td>
+<td style="text-align: left;">The agent interviews you with targeted questions to flesh out an article outline, proposal, or strategy before writing.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>/schedule</strong></td>
+<td style="text-align: left;">Runs a recurring task or reminder <em>(e.g., "Remind me in 2 hours to review the draft," or "Check this website every Monday morning")</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>/browser</strong></td>
+<td style="text-align: left;">Allows the agent to look up live websites, conference dates, or public documents.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>/learn</strong></td>
+<td style="text-align: left;">Teaches the agent a persistent habit or rule based on recent feedback.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. Pro Tips for Daily Use</h2>
+<ol>
+<li><strong>Ask for Outlines First</strong>: For long essays, articles, or reports, ask the agent: <em>"Give me an outline first, and wait for my feedback before writing the full draft."</em></li>
+<li><strong>Use Markdown Preview</strong>: View documents in rendered visual mode by pressing Cmd + Shift + V (Mac) or clicking the Preview icon in the top right corner of your editor.</li>
+<li><strong>Keep Raw Files Untouched</strong>: Instruct the agent: <em>"Do not edit my original files; save all edits as <code>draft_v2.md</code> or in an <code>outputs/</code> folder."</em></li>
+<li><strong>Interactive Displays</strong>: Ask the agent to <em>"Show this as an interactive preview or visual dashboard"</em> to turn static lists and tables into interactive widgets.</li>
+</ol>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <span>AI Agents Tutorial &middot; WashU AI Perspectives Week 2026</span>
+    <a href="https://github.com/genai-cs-ed/ai_agents_tutorial">Source on GitHub</a>
+  </div>
+</footer>
+</body>
+</html>
