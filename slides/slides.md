@@ -45,7 +45,7 @@ A first working agent-style workflow for a repetitive task of your own.
 
 By the end you can:
 
-1. Explain how an agent differs from a chatbot
+1. Explain what makes a workflow agentic: a goal it plans, acts, and checks on its own
 2. Turn your task into written instructions an AI tool can follow, and run them on a real sample
 3. Judge where to trust, check, and stop the output
 
@@ -135,35 +135,17 @@ Leave this up while people work. If anyone is still stuck, offer examples. Facul
 
 # 2. What is an agent?
 
-| | Chatbot | Agent |
-| --- | --- | --- |
-| **Steering** | You: read, correct, ask again | It plans, acts, checks, adjusts |
-| **Tools** | What it knows, plus what you paste in | Files, the web, other apps |
-| **You get** | An answer at each step | Finished work, or a question |
+**You give it a goal. It runs a loop, largely on its own:**
 
-**Both can work toward a goal you state. The difference is how much of the steering you do.**
+1. **Plan** an approach
+2. **Act**, using tools: files, the web, other apps
+3. **Check** its own result
+4. **Hand back** finished work, or a question if it is stuck
 
-<!--
-0:10 to 0:25. The one message for this block. Keep it short and jargon free. A chatbot remembers the conversation, so it can absolutely help you reach a goal you state, for example drafting a plan over ten messages, but you are the loop: you read each answer, decide what is wrong, and ask for the next step. An agent takes the same goal and runs that loop itself: it plans, acts with tools, checks its own result, and adjusts, then hands back finished work or asks you a question when it is stuck. It is a difference in degree, not a wall between two kinds of tool.
--->
-
----
-
-# How you reach a chatbot vs an agent
-
-| | Chat window | Agent-style features | On your computer |
-| --- | --- | --- | --- |
-| **Claude** | New chat | Projects, Research, Skills | Claude desktop, Claude Code |
-| **Gemini** | New chat | Gems, Deep Research | Antigravity app, Gemini CLI |
-
-**Often it is the same tool with more turned on:** saved instructions, files, the web, and connected tools.
-
-The **Antigravity app** is a separate download, not on WashU's approved tools list. Use made-up data with it.
+**You set the goal and check what comes back. It does the rest in between.**
 
 <!--
-Keep this short. The point: you do not go to a different website to get an agent. You open the same tool you already use and turn on or set up more. Chat window = the plain conversation. Agent-style features = things that let it follow saved instructions, use files, search the web, or run a multi-step job on its own. Agent on your computer = a separate app that works on files and folders on your computer. Claude: Projects (saved instructions plus files), Research, Skills; the Claude desktop app (with Cowork) and Claude Code are the apps that work on your files (both are listed on the WashU tools page). Gemini: Gems (saved instructions, in the web interface) and Deep Research (in the text box menu, it makes a plan, browses, and writes a report). For Gemini to work as an agent on your computer you go through Google Antigravity, or through Gemini CLI, its command line interface. Antigravity is a code editor (a modified version of Visual Studio Code) with Gemini agents built in; Gemini CLI runs in a terminal window. Both are developer tools and may feel technical for this audience, so treat them as "here is where Gemini's agent lives," not something everyone installs today.
-
-Cautions before the day: feature names and availability change and depend on your plan and on what WashU has switched on. Antigravity is a separate download, and I did not find it on WashU's tools page, so confirm whether it works with a WashU account and whether it is approved before anyone uses real data in it; the slide tells people to use made-up data. Research in Claude may need a paid plan outside Claude Edu, so check with a student login. Do a dry run in each tool and fix this table to match. The Get set up block goes into the exact menu names.
+0:10 to 0:25. The one message for this block. Keep it short and jargon free. This is what makes something agentic: not a separate category of tool, but the middle of the loop running on its own, between the moment you state a goal and the moment you check the result. Point forward to the diagram on the next slide, which shows this loop and the wider spectrum of how much you hand off. If someone asks how this is different from "just chatting," the honest answer is that it is a difference in degree: the more of the plan-act-check loop the tool runs without you steering it step by step, the more agentic the workflow is.
 -->
 
 ---
@@ -175,28 +157,28 @@ Cautions before the day: feature names and availability change and depend on you
 <!-- _footer: "" -->
 
 <!--
-Walk left to right through the top row: the goal stays fixed, the agent plans, acts with tools, checks its own result, and hands back to you. Point at the red dashed arrow: if the check fails, it goes back and revises the plan, and repeats until the check passes or it asks for help. Then the bottom: this is a spectrum, not a switch between two kinds of tool. Most useful work today sits in the middle, with a human setting the goal and checking the result. Today we build the first three: a single prompt, saved instructions, and a tool-using workflow.
+Walk left to right through the top row: the goal stays fixed, the agent plans, acts with tools, checks its own result, and hands back to you. Point at the red dashed arrow: if the check fails, it goes back and revises the plan, and repeats until the check passes or it asks for help. Then the bottom: this is a spectrum, not a switch. Most useful work today sits in the middle, with a human setting the goal and checking the result. Today we build the first three: a single prompt, saved instructions, and a tool-using workflow. Where each tool's agent features live (Claude: Projects, Cowork, Claude Code, Skills; Gemini: Gems, Antigravity, Gemini CLI) comes up in Get set up; no need to list them here.
 -->
 
 ---
 
 <!-- _header: "" -->
 
-# Live demo: a four-year plan, two ways
+# Live demo: watch the loop run
 
 **The task:** plan the rest of a Computer Science degree from the official requirements and a transcript.
 
-1. **Chatbot.** Attach the files, ask for a plan, then steer it message by message
-2. **Agent.** Same goal and files, given once. It plans, checks, and hands back a finished plan
+**The goal, given once:** make a semester-by-semester plan so the student graduates in four years, covering every requirement.
 
 Watch for:
 
-- Who does the steering
-- What it does with the files
-- What you get back
+- How it **plans** before it touches a file
+- How it **acts**, reading both files itself
+- How it **checks** its own plan against the requirements
+- What comes back: a finished plan, or a question
 
 <!--
-Plan on eight to ten minutes. Full prompts, setup, and an answer key are in demo/demo-script.md, and the made-up student is in demo/sample-transcript.txt. Use the same goal on both sides. Chatbot half: Claude chat, with the requirements PDF and the transcript attached; steer it out loud ("what does my transcript already satisfy?", "check your plan against every requirement"). Agent half: Claude Cowork on a folder with the same two files; give it the goal once and narrate what it does while it works. Pre-run both halves before the session and keep screenshots as a backup. Use only the made-up student, never a real record. Close by opening one plan and checking one line against the requirements: an agent can still be wrong, and you own the result.
+Plan on eight to ten minutes. Full prompt, setup, and an answer key are in demo/demo-script.md, and the made-up student is in demo/sample-transcript.txt. Open Claude Cowork (or Antigravity) on a folder with the requirements PDF and the transcript. Give it the goal once, then narrate each stage of the loop as it happens: it decides how to approach the task (plan), opens both files itself (act), reviews its plan against every requirement (check), and either saves a finished plan or stops to ask you something (hand back). Pre-run the demo before the session and keep a screenshot or the saved output as a backup. Use only the made-up student, never a real record. Close by opening the plan and checking one line against the requirements yourself: an agent can still be wrong, and you own the result.
 -->
 
 ---
