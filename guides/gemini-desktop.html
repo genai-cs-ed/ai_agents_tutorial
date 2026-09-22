@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gemini Desktop | AI Agents Tutorial</title>
+<meta name="description" content="How to set up and use Gemini Desktop for non-coding agent workflows: modes, project data, Canvas, Gems, and tips.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f7f8;
+    --card: #ffffff;
+    --text: #1f2328;
+    --muted: #59636e;
+    --border: #d8dde2;
+    --accent: #a51417;
+    --accent-strong: #8a1013;
+    --accent-soft: #fbeaea;
+    --on-accent: #ffffff;
+    --shadow: 0 1px 2px rgba(20, 24, 28, .06), 0 4px 16px rgba(20, 24, 28, .06);
+    --shadow-hover: 0 2px 4px rgba(20, 24, 28, .08), 0 10px 28px rgba(20, 24, 28, .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1013;
+      --surface: #14171b;
+      --card: #191d22;
+      --text: #e8eaed;
+      --muted: #a3acb6;
+      --border: #2b3138;
+      --accent: #ef7276;
+      --accent-strong: #f59a9d;
+      --accent-soft: #2a1a1c;
+      --on-accent: #1a0a0b;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+      --shadow-hover: 0 8px 28px rgba(0, 0, 0, .55);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, .btn:focus-visible, .card:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  .wrap { width: min(1080px, 100% - 48px); margin-inline: auto; }
+
+  /* Top bar */
+  .topbar { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  .brand { font-weight: 700; color: var(--text); text-decoration: none; font-size: 15px; letter-spacing: .01em; }
+  .brand span { color: var(--accent); }
+  nav { display: flex; gap: 22px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; }
+  nav a:hover { color: var(--text); }
+
+
+  .doc { padding: 48px 0 72px; }
+  .doc .wrap { max-width: 860px; }
+  .back { display: inline-block; margin: 0 0 20px; font-size: 15px; font-weight: 600; text-decoration: none; }
+  .doc h1 { font-size: clamp(30px, 4.6vw, 42px); max-width: none; margin: 0 0 18px; }
+  .doc h2 { margin: 44px 0 14px; padding-top: 8px; font-size: clamp(22px, 3vw, 28px); }
+  .doc h3 { margin: 28px 0 8px; font-size: 19px; }
+  .doc hr { border: 0; border-top: 1px solid var(--border); margin: 36px 0 0; }
+  .doc table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; display: block; overflow-x: auto; }
+  .doc th, .doc td { text-align: left; vertical-align: top; padding: 10px 14px; border: 1px solid var(--border); }
+  .doc th { background: var(--surface); }
+  .doc pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; overflow-x: auto; font-size: 14.5px; line-height: 1.5; }
+  .doc code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; background: var(--surface); padding: 1px 5px; border-radius: 4px; }
+  .doc pre code { background: none; padding: 0; }
+  .doc blockquote { margin: 12px 0; padding: 4px 18px; border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: 0 10px 10px 0; }
+  .doc li { margin: 6px 0; }
+  .dl { margin: 0 0 8px; }
+  @media print { .topbar, footer, .back, .dl { display: none; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">AI Agents <span>Tutorial</span></a>
+    <nav aria-label="Site"><a href="../index.html#materials">Materials</a><a href="../index.html#tools">Tools</a></nav>
+  </div>
+</header>
+<main class="doc">
+  <div class="wrap">
+    <a class="back" href="../index.html#materials">&larr; Back to materials</a>
+    <p class="dl"><a href="gemini-desktop-reference-sheet.md" download>Download this sheet as Markdown</a></p>
+<h1>Gemini Desktop</h1>
+<p>A practical guide for using Gemini Desktop on your computer for <strong>research, writing, policy review, academic advising, data analysis, and everyday knowledge work</strong>.</p>
+<hr />
+<h2>Before You Start</h2>
+<ul>
+<li><strong>Gemini Desktop is an approved WashU AI tool.</strong> It is officially cleared for institutional use.</li>
+<li><strong>FERPA &amp; PHI Compliant:</strong> When logged in using your official <strong>WashU account</strong>, Gemini Desktop is approved for both FERPA-regulated student records and Protected Health Information (PHI).</li>
+<li><strong>Verify Your Account:</strong> Ensure you are signed in with your WashU credentials prior to analyzing sensitive institutional, student, or clinical datasets. <a href="https://it.washu.edu/gemini/?utm_source=gemini" target="_blank" rel="noopener">Look for the EDU notice next to your account</a>. Google will not retain data or train models with these accounts.</li>
+</ul>
+<hr />
+<h2>1. Pick a Mode</h2>
+<ul>
+<li><strong>Chat</strong>: The standard conversational assistant for quick Q&amp;A, brainstorming, drafting text, and general task automation. It provides direct, immediate answers to everyday prompts.</li>
+<li><strong>Canvas</strong>: A side-by-side workspace designed for building and refining projects in real time. It allows users to co-create documents, write and test code, build web prototypes, design infographics, and convert notes into interactive materials.</li>
+<li><strong>Guided Learning</strong>: An interactive study and tutoring mode. Rather than simply giving answers, it breaks concepts down step-by-step, asks Socratic questions, provides hints, and generates practice quizzes and visual aids to help build active understanding.</li>
+<li><strong>Deep Research</strong>: An autonomous research assistant for complex inquiries. It generates a research plan, scans and cross-references multiple web sources and connected Google Workspace files (Drive, Gmail), and compiles structured, long-form reports.</li>
+</ul>
+<hr />
+<h2>2. Where to Provide Your Project Data</h2>
+<p>Gemini Desktop can only see files that you explicitly give to it. Files can be uploaded from your computer or linked from your Google Drive. Click the plus icon in the prompt box.</p>
+<p>Use files creatively. Rather than writing a long prompt, write the prompt or a set of instructions in a file and then tell Gemini to follow the instructions in the file.</p>
+<hr />
+<h2>3. What Gemini Desktop Can Do Beyond Coding</h2>
+<p>Once you provide files, Gemini Desktop can:</p>
+<ul>
+<li><strong>Create Documents</strong>: Can directly synthesize or edit docs, sheets, and presentations.</li>
+<li><strong>Document &amp; Transcript Analysis</strong>: Reads PDFs, Word docs, text files, and transcripts to extract themes, find inconsistencies, or audit requirements.</li>
+<li><strong>Spreadsheets &amp; Data</strong>: Inspects CSVs/data files, computes totals, identifies outliers, and compiles summaries.</li>
+<li><strong>Live Web Research</strong>: Searches the web, reads current articles, and synthesizes findings with source links.</li>
+<li><strong>Diagrams &amp; Visuals</strong>: Generates workflow diagrams, organizational charts, and custom images.</li>
+</ul>
+<hr />
+<h2>4. Co-Creating Documents with Canvas Mode</h2>
+<p>Canvas Mode provides a side-by-side document workspace where you and Gemini refine drafts collaboratively without rewriting the entire piece. Highlight any block of text directly in the document editor pane to open the inline edit prompt. Gemini will apply changes <strong>only to the selected text</strong>:</p>
+<ul>
+<li><strong>Refine Tone</strong>: Select a paragraph <em>"Rewrite this to sound more authoritative and suitable for an academic grant submission."</em></li>
+<li><strong>Expand &amp; Clarify</strong>: Select a bullet point <em>"Expand this single point into three actionable sub-bullets with concrete examples."</em></li>
+<li><strong>Condense / Trim</strong>: Select a verbose section <em>"Cut word count by 30% while retaining all key policy constraints."</em></li>
+<li><strong>Format &amp; Structure</strong>: Select raw text <em>"Convert this paragraph into a comparative Markdown table."</em></li>
+</ul>
+<hr />
+<h2>5. Gems for Reusable Skills</h2>
+<p>Gems are Gemini Desktop's version of agentic skills. You can condense a frequently used action or task into a gem that can be used explicitly when you want to do that task. Examples of gem-sized concrete tasks:</p>
+<ul>
+<li><strong>Process a Form</strong>: Tell Gemini how to extract and use important data from a specific form</li>
+<li><strong>Apply a Rubric</strong>: Evaluate a document according to a provided rubric.</li>
+<li><strong>Check Rules</strong>: Have Gemini evaluate a paper draft or proposal whether it conforms to formatting requirements</li>
+<li><strong>Summarize Changes</strong>: Give Gemini two different documents and summarize specific differences between them.</li>
+</ul>
+<p>Gems can be a stored set of instructions, but you can also attach specific documents or other resources to a gem. A gem could reference a blank response template when processing a request, as an example.</p>
+<hr />
+<h2>6. Pro Tips for Daily Use</h2>
+<ol>
+<li><strong>Ask for Outlines First</strong>: For long essays, articles, or reports, ask the agent: <em>"Give me an outline first, and we'll fill out sections individually later."</em></li>
+<li><strong>Keep Raw Files Untouched</strong>: Instruct the agent: <em>"Do not edit my original files; save all edits as <code>draft_v2.md</code> or in an <code>outputs/</code> folder."</em></li>
+<li><strong>Graphs and Visuals</strong>: Ask Gemini to turn complex processes, concepts, or datasets into visual diagrams</li>
+</ol>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <span>AI Agents Tutorial &middot; WashU AI Perspectives Week 2026</span>
+    <a href="https://github.com/genai-cs-ed/ai_agents_tutorial">Source on GitHub</a>
+  </div>
+</footer>
+</body>
+</html>
