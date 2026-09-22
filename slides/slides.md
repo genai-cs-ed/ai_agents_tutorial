@@ -29,7 +29,7 @@ style: |
 <!-- _paginate: false -->
 <!-- _footer: "" -->
 
-# AI Agents: Put Your Repetitive Task to Work
+# AI Agents to Automate your Repetitive Tasks
 
 Hands-on tutorial · WashU AI Perspectives Week 2026
 
