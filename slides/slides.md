@@ -72,8 +72,8 @@ Quick pass over the plan. Point out that every block ends with participants doin
 
 # Ground rules for today
 
-- **Check what data you can share** with the tool you are using. WashU lists which tools are approved for FERPA data and for PHI (next slide)
-- **Not sure? Use a made-up or sanitized example**
+- **Check what data you can share** with the tool you are using. [WashU lists which tools are approved for FERPA data and for PHI](https://ai.washu.edu/tools/) (next slide)
+- **Only use WashU data through an official WashU integration.** Not sure? Use a made-up or sanitized example
 - **Check everything** an AI tool gives you
 - **You own the result**, whatever produced it
 - Anything that sends, deletes, submits, or spends needs a **human approval step**
@@ -180,17 +180,15 @@ Walk left to right through the top row: the goal stays fixed, the agent plans, a
 
 # Live demo: watch the loop run
 
-**The task, given once:** "Help me create a rubric for this assignment," pointed at a real programming lab.
+**One goal, given once.** Watch for:
 
-Watch for:
-
-- How it **plans** a rubric structure before writing anything
-- How it **acts**, reading the assignment and guidelines itself
-- How it **checks** the rubric against every deliverable in the assignment
-- What comes back: a draft rubric, or a question
+- How it **plans** an approach before it touches anything
+- How it **acts**, using tools: files, the web, other apps
+- How it **checks** its own result
+- What comes back: finished work, or a question
 
 <!--
-Plan on eight to ten minutes. Full prompt, setup, and an answer key are in demo/demo-script.md. The assignment is demo/lab0 (a C++ lab), the same one behind the "Read a sample recipe together" slide later, which reviews submissions against a rubric like the one built here; mention that connection when you get there. Open Claude Cowork (or Antigravity) on the lab0 folder. Give it the goal once, then narrate each stage of the loop as it happens: it decides how to structure a rubric before writing one (plan), opens the assignment and the programming guidelines itself (act), checks that every deliverable in the assignment has a matching rubric line (check), and either saves a draft rubric or stops to ask you something, such as how to weight categories (hand back). Pre-run the demo before the session and keep a screenshot or the saved output as a backup. Close by checking one rubric line against the assignment yourself: an agent can still be wrong, and you own the result.
+Plan on eight to ten minutes per demo. Full prompts, setup, and answer keys for each demo are in demo/demo-script.md; pick one or run a couple back to back if time allows. Whichever demo you run, open Claude Cowork (or Antigravity) on its folder, give it the goal once, and narrate each stage of the loop as it happens: it decides how to approach the task before touching a file (plan), opens the files itself (act), reviews its own result before showing it to you (check), and either saves finished work or stops to ask you something (hand back). Pre-run each demo before the session and keep a screenshot or the saved output as a backup. Close by checking one detail of the result against the source material yourself: an agent can still be wrong, and you own the result.
 -->
 
 ---
