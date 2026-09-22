@@ -26,7 +26,7 @@ Gemini Desktop can only see files that you explicitly give to it. Files can be u
 
 Use files creatively. Rather than writing a long prompt, write the prompt or a set of instructions in a file and then tell Gemini to follow the instructions in the file.
 
-## 3. What Gemini Desktop Can Do Beyond Coding
+## 3. What Gemini Desktop Can Do
 
 Once you provide files, Gemini Desktop can:
 
