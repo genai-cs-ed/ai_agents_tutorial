@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pick Your Task Worksheet | AI Agents Tutorial</title>
+<meta name="description" content="Choose one repetitive task and describe what goes in, what comes out, and how you will know it is right.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f7f8;
+    --card: #ffffff;
+    --text: #1f2328;
+    --muted: #59636e;
+    --border: #d8dde2;
+    --accent: #a51417;
+    --accent-strong: #8a1013;
+    --accent-soft: #fbeaea;
+    --on-accent: #ffffff;
+    --shadow: 0 1px 2px rgba(20, 24, 28, .06), 0 4px 16px rgba(20, 24, 28, .06);
+    --shadow-hover: 0 2px 4px rgba(20, 24, 28, .08), 0 10px 28px rgba(20, 24, 28, .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1013;
+      --surface: #14171b;
+      --card: #191d22;
+      --text: #e8eaed;
+      --muted: #a3acb6;
+      --border: #2b3138;
+      --accent: #ef7276;
+      --accent-strong: #f59a9d;
+      --accent-soft: #2a1a1c;
+      --on-accent: #1a0a0b;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+      --shadow-hover: 0 8px 28px rgba(0, 0, 0, .55);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, .btn:focus-visible, .card:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  .wrap { width: min(1080px, 100% - 48px); margin-inline: auto; }
+
+  /* Top bar */
+  .topbar { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  .brand { font-weight: 700; color: var(--text); text-decoration: none; font-size: 15px; letter-spacing: .01em; }
+  .brand span { color: var(--accent); }
+  nav { display: flex; gap: 22px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; }
+  nav a:hover { color: var(--text); }
+
+  .doc { padding: 48px 0 72px; }
+  .doc .wrap { max-width: 860px; }
+  .back { display: inline-block; margin: 0 0 20px; font-size: 15px; font-weight: 600; text-decoration: none; }
+  .doc h1 { font-size: clamp(30px, 4.6vw, 42px); max-width: none; margin: 0 0 18px; }
+  .doc h2 { margin: 44px 0 14px; padding-top: 8px; font-size: clamp(22px, 3vw, 28px); }
+  .doc h3 { margin: 28px 0 8px; font-size: 19px; }
+  .doc hr { border: 0; border-top: 1px solid var(--border); margin: 36px 0 0; }
+  .doc table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; display: block; overflow-x: auto; }
+  .doc th, .doc td { text-align: left; vertical-align: top; padding: 10px 14px; border: 1px solid var(--border); }
+  .doc th { background: var(--surface); }
+  .doc pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; overflow-x: auto; font-size: 14.5px; line-height: 1.5; }
+  .doc code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; background: var(--surface); padding: 1px 5px; border-radius: 4px; }
+  .doc pre code { background: none; padding: 0; }
+  .doc blockquote { margin: 12px 0; padding: 4px 18px; border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: 0 10px 10px 0; }
+  .doc li { margin: 6px 0; }
+  .dl { margin: 0 0 8px; }
+
+  .recipe-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; margin: 16px 0; }
+  .recipe-note { color: var(--muted); font-size: 15px; margin: 4px 0 0; }
+  .recipe-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 44px 0 0; padding-top: 8px; }
+  .recipe-head h2 { margin: 0; }
+  .copy-btn {
+    appearance: none; border: 1px solid var(--border); background: var(--card); color: var(--text);
+    font-size: 14.5px; font-weight: 600; padding: 9px 16px; border-radius: 8px; cursor: pointer;
+    font-family: inherit;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .copy-btn[data-copied="true"] { border-color: var(--accent); color: var(--accent); }
+
+  .field { margin: 0 0 20px; }
+  .field:last-child { margin-bottom: 0; }
+  .field label { display: block; font-weight: 700; margin-bottom: 4px; }
+  .field .hint { display: block; font-weight: 400; color: var(--muted); font-size: 14.5px; margin-bottom: 8px; }
+  .field textarea, .field input[type="text"] {
+    width: 100%; font-family: inherit; font-size: 16px; padding: 10px 12px;
+    border: 1px solid var(--border); border-radius: 8px; background: var(--card); color: var(--text); resize: vertical;
+  }
+  .field textarea:focus, .field input[type="text"]:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  @media print { .topbar, footer, .back, .dl, .copy-btn { display: none; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">AI Agents <span>Tutorial</span></a>
+    <nav aria-label="Site"><a href="../index.html#materials">Materials</a><a href="../index.html#tools">Tools</a></nav>
+  </div>
+</header>
+<main class="doc">
+  <div class="wrap">
+    <a class="back" href="../index.html#materials">&larr; Back to materials</a>
+    <p class="dl"><a href="Pick%20Your%20Task%20Worksheet.docx" download>Download this worksheet as a Word document</a></p>
+<h1>Pick Your Task</h1>
+<p>Choose one thing you do over and over that you would happily hand off. The best pick is small, comes up often, and has a clear &ldquo;done.&rdquo; You will build on it for the rest of the session.</p>
+<p>Fill in the four boxes in about four minutes.</p>
+<hr />
+
+<div class="recipe-box">
+<div class="field">
+<label for="f-task">1&nbsp; The task</label>
+<span class="hint">What is it, in a few words? How often do you do it?</span>
+<textarea id="f-task" rows="2"></textarea>
+</div>
+<div class="field">
+<label for="f-in">2&nbsp; What goes in</label>
+<span class="hint">What do you start with? An email, notes, a spreadsheet, a form...</span>
+<textarea id="f-in" rows="2"></textarea>
+</div>
+<div class="field">
+<label for="f-out">3&nbsp; What comes out</label>
+<span class="hint">What do you end up with? A summary, a reply, a list, a report...</span>
+<textarea id="f-out" rows="2"></textarea>
+</div>
+<div class="field">
+<label for="f-check">4&nbsp; How I would know it is right</label>
+<span class="hint">What would you check to be sure it was done well?</span>
+<textarea id="f-check" rows="2"></textarea>
+</div>
+</div>
+
+<div class="recipe-head">
+  <h2 style="margin:0; padding-top:0;">Pair share &middot; 3 minutes</h2>
+  <button class="copy-btn" id="copy-worksheet" type="button" aria-label="Copy your answers">Copy your answers</button>
+</div>
+<p class="recipe-note">Explain your task to a neighbor, then listen to theirs. Ask one question about it.</p>
+<div class="recipe-box">
+<div class="field">
+<label for="f-neighbor">My neighbor's task</label>
+<input type="text" id="f-neighbor">
+</div>
+<div class="field">
+<label for="f-borrow">Something I want to borrow from it</label>
+<input type="text" id="f-borrow">
+</div>
+</div>
+
+<h2>Stuck? Ask yourself:</h2>
+<ul>
+<li>What do you copy, paste or retype from one place to another every week?</li>
+<li>What email, summary or report do you write from the same template again and again?</li>
+<li>What do you sort, tag, rename or check against a list?</li>
+<li>What do you look up or gather from several places before the real work starts?</li>
+</ul>
+<hr />
+<p><strong>Keep it safe.</strong> Use a sanitized or made-up example today. Please do not use student records, health information, passwords, or confidential research data.</p>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <span>AI Agents Tutorial &middot; WashU AI Perspectives Week 2026</span>
+    <a href="https://github.com/genai-cs-ed/ai_agents_tutorial">Source on GitHub</a>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('copy-worksheet');
+  if (!btn) return;
+  var ids = [
+    ['f-task', 'The task'],
+    ['f-in', 'What goes in'],
+    ['f-out', 'What comes out'],
+    ['f-check', 'How I would know it is right'],
+    ['f-neighbor', "My neighbor's task"],
+    ['f-borrow', 'Something I want to borrow from it']
+  ];
+  btn.addEventListener('click', function () {
+    var lines = [];
+    ids.forEach(function (pair) {
+      var el = document.getElementById(pair[0]);
+      var val = el ? el.value.trim() : '';
+      lines.push(pair[1] + ': ' + val);
+    });
+    var text = lines.join('\n');
+    var original = 'Copy your answers';
+    var done = function () {
+      btn.textContent = 'Copied!';
+      btn.setAttribute('data-copied', 'true');
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.removeAttribute('data-copied');
+      }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () {
+        btn.textContent = 'Could not copy — select manually';
+      });
+    } else {
+      btn.textContent = 'Could not copy — select manually';
+    }
+  });
+})();
+</script>
+</body>
+</html>

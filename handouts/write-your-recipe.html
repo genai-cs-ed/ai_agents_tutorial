@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Write Your Recipe Handout | AI Agents Tutorial</title>
+<meta name="description" content="Turn your task into plain-text instructions an AI tool can follow, with a worked example and a guide to fixing the result.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f7f8;
+    --card: #ffffff;
+    --text: #1f2328;
+    --muted: #59636e;
+    --border: #d8dde2;
+    --accent: #a51417;
+    --accent-strong: #8a1013;
+    --accent-soft: #fbeaea;
+    --on-accent: #ffffff;
+    --shadow: 0 1px 2px rgba(20, 24, 28, .06), 0 4px 16px rgba(20, 24, 28, .06);
+    --shadow-hover: 0 2px 4px rgba(20, 24, 28, .08), 0 10px 28px rgba(20, 24, 28, .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1013;
+      --surface: #14171b;
+      --card: #191d22;
+      --text: #e8eaed;
+      --muted: #a3acb6;
+      --border: #2b3138;
+      --accent: #ef7276;
+      --accent-strong: #f59a9d;
+      --accent-soft: #2a1a1c;
+      --on-accent: #1a0a0b;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+      --shadow-hover: 0 8px 28px rgba(0, 0, 0, .55);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, .btn:focus-visible, .card:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  .wrap { width: min(1080px, 100% - 48px); margin-inline: auto; }
+
+  /* Top bar */
+  .topbar { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  .brand { font-weight: 700; color: var(--text); text-decoration: none; font-size: 15px; letter-spacing: .01em; }
+  .brand span { color: var(--accent); }
+  nav { display: flex; gap: 22px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; }
+  nav a:hover { color: var(--text); }
+
+  .doc { padding: 48px 0 72px; }
+  .doc .wrap { max-width: 860px; }
+  .back { display: inline-block; margin: 0 0 20px; font-size: 15px; font-weight: 600; text-decoration: none; }
+  .doc h1 { font-size: clamp(30px, 4.6vw, 42px); max-width: none; margin: 0 0 18px; }
+  .doc h2 { margin: 44px 0 14px; padding-top: 8px; font-size: clamp(22px, 3vw, 28px); }
+  .doc h3 { margin: 28px 0 8px; font-size: 19px; }
+  .doc hr { border: 0; border-top: 1px solid var(--border); margin: 36px 0 0; }
+  .doc table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; display: block; overflow-x: auto; }
+  .doc th, .doc td { text-align: left; vertical-align: top; padding: 10px 14px; border: 1px solid var(--border); }
+  .doc th { background: var(--surface); }
+  .doc pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; overflow-x: auto; font-size: 14.5px; line-height: 1.5; }
+  .doc code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; background: var(--surface); padding: 1px 5px; border-radius: 4px; }
+  .doc pre code { background: none; padding: 0; }
+  .doc blockquote { margin: 12px 0; padding: 4px 18px; border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: 0 10px 10px 0; }
+  .doc li { margin: 6px 0; }
+  .dl { margin: 0 0 8px; }
+
+  .recipe-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; margin: 16px 0; }
+  .recipe-box p { margin: 0 0 14px; }
+  .recipe-box p:last-child { margin-bottom: 0; }
+  .recipe-box ol { margin: 6px 0 14px; padding-left: 22px; }
+  .recipe-box ol li { margin: 4px 0; }
+  .recipe-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 44px 0 0; padding-top: 8px; }
+  .recipe-head h2 { margin: 0; }
+  .recipe-note { color: var(--muted); font-size: 15px; margin: 4px 0 0; }
+  .copy-btn {
+    appearance: none; border: 1px solid var(--border); background: var(--card); color: var(--text);
+    font-size: 14.5px; font-weight: 600; padding: 9px 16px; border-radius: 8px; cursor: pointer;
+    font-family: inherit;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .copy-btn[data-copied="true"] { border-color: var(--accent); color: var(--accent); }
+
+  .field { margin: 0 0 20px; }
+  .field:last-child { margin-bottom: 0; }
+  .field label { display: block; font-weight: 700; margin-bottom: 4px; }
+  .field .hint { display: block; font-weight: 400; color: var(--muted); font-size: 14.5px; margin-bottom: 8px; }
+  .field textarea, .field input[type="text"] {
+    width: 100%; font-family: inherit; font-size: 16px; padding: 10px 12px;
+    border: 1px solid var(--border); border-radius: 8px; background: var(--card); color: var(--text); resize: vertical;
+  }
+  .field textarea:focus, .field input[type="text"]:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  @media print { .topbar, footer, .back, .dl, .copy-btn { display: none; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">AI Agents <span>Tutorial</span></a>
+    <nav aria-label="Site"><a href="../index.html#materials">Materials</a><a href="../index.html#tools">Tools</a></nav>
+  </div>
+</header>
+<main class="doc">
+  <div class="wrap">
+    <a class="back" href="../index.html#materials">&larr; Back to materials</a>
+    <p class="dl"><a href="Write%20Your%20Recipe%20Handout.docx" download>Download this handout as a Word document</a></p>
+<h1>Write Your Recipe</h1>
+<p>Turn the task from your worksheet into instructions an AI tool can follow. Type your recipe below. When you are done, use the copy button to paste it into Claude or Gemini.</p>
+<hr />
+<h2>What to write in each field</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">What to write</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Goal</strong></td>
+<td style="text-align: left;">What you want done, in one sentence.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Context</strong></td>
+<td style="text-align: left;">Who you are and who will read the result.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Input</strong></td>
+<td style="text-align: left;">What you will give it each time.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Steps</strong></td>
+<td style="text-align: left;">The actions, numbered, in order.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Output</strong></td>
+<td style="text-align: left;">Format, length, tone, headings.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rules</strong></td>
+<td style="text-align: left;">What it must never do, and when it should ask you instead of guessing.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Good example</strong></td>
+<td style="text-align: left;">Optional: a sample result you would be happy with.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="recipe-head">
+  <h2 id="recipe" style="margin:0; padding-top:0;">Your recipe</h2>
+  <button class="copy-btn" id="copy-recipe" type="button" aria-label="Copy your recipe">Copy your recipe</button>
+</div>
+<p class="recipe-note">Type or write your recipe below. When you are done, copy it and paste it into Claude or Gemini.</p>
+<div class="recipe-box">
+<div class="field">
+<label for="f-goal">Goal</label>
+<textarea id="f-goal" rows="2"></textarea>
+</div>
+<div class="field">
+<label for="f-context">Context</label>
+<textarea id="f-context" rows="2"></textarea>
+</div>
+<div class="field">
+<label for="f-input">Input</label>
+<textarea id="f-input" rows="2"></textarea>
+</div>
+<div class="field">
+<label for="f-steps">Steps</label>
+<span class="hint">The actions, numbered, in order.</span>
+<textarea id="f-steps" rows="4" placeholder="1.&#10;2.&#10;3.&#10;4."></textarea>
+</div>
+<div class="field">
+<label for="f-output">Output</label>
+<textarea id="f-output" rows="2"></textarea>
+</div>
+<div class="field">
+<label for="f-rules">Rules</label>
+<textarea id="f-rules" rows="2"></textarea>
+</div>
+</div>
+
+<hr />
+<h2>A Worked Example You Can Copy</h2>
+<p>This example uses the same format, so you can paste it into an AI tool to try it before writing your own. Paste some messy meeting notes underneath it, then send.</p>
+<p><strong>A weak recipe:</strong> "Summarize these meeting notes." No audience, no format, no rules, so the tool has to guess all three.</p>
+<div class="recipe-head">
+  <h3 style="margin:0;">A stronger recipe (copy from here)</h3>
+  <button class="copy-btn" id="copy-example" type="button" aria-label="Copy the worked example">Copy this example</button>
+</div>
+<div class="recipe-box" id="example-text">
+<p><strong>Goal:</strong> Turn my meeting notes into decisions, action items, and a follow-up email.</p>
+<p><strong>Context:</strong> I chair a six-person committee. The email goes to the members.</p>
+<p><strong>Input:</strong> Typed notes, often messy, with names and deadlines inside sentences.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>List each decision made.</li>
+<li>List each action item with an owner and a due date.</li>
+<li>Draft a follow-up email to the committee.</li>
+</ol>
+<p><strong>Output:</strong> Decisions as bullets. Action items as a table with the columns Owner, Task, and Due. Then an email under 100 words in a friendly, direct tone.</p>
+<p><strong>Rules:</strong> Use only what is in the notes. If an owner or a due date is missing, write "unclear" instead of guessing. Ask me if anything is ambiguous.</p>
+</div>
+
+<h2>Read the result critically</h2>
+<ul>
+<li>Did it follow every step, in order?</li>
+<li>Did it invent anything that was not in my input?</li>
+<li>Is the format what I asked for, including length and tone?</li>
+<li>What did it get wrong or miss, and which line of my recipe would prevent that?</li>
+</ul>
+
+<h2>Fix the recipe, not the output</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">If you see this</th>
+<th style="text-align: left;">Try adding this to the recipe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">It made up details</td>
+<td style="text-align: left;">Use only the information in the input. If something is missing, write "unclear."</td>
+</tr>
+<tr>
+<td style="text-align: left;">Too long or too short</td>
+<td style="text-align: left;">A length: under 100 words, or five bullets.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Wrong tone</td>
+<td style="text-align: left;">Who will read it and how formal to be.</td>
+</tr>
+<tr>
+<td style="text-align: left;">It skipped a step</td>
+<td style="text-align: left;">Number the steps and say: do every step, in order.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Format is off</td>
+<td style="text-align: left;">Describe the format you want, or paste a small example of it.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Keep it safe.</strong> Check what data you can share with the tool you are using. WashU lists which tools are approved for FERPA data and for PHI at <a href="https://ai.washu.edu/tools/" target="_blank" rel="noopener">ai.washu.edu/tools</a>. Not sure? Use a sanitized or made-up example. Never put passwords in an AI tool. Save your recipe: you will turn it into a reusable assistant in the next block.</p>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <span>AI Agents Tutorial &middot; WashU AI Perspectives Week 2026</span>
+    <a href="https://github.com/genai-cs-ed/ai_agents_tutorial">Source on GitHub</a>
+  </div>
+</footer>
+<script>
+(function () {
+  function wireCopy(btnId, getText) {
+    var btn = document.getElementById(btnId);
+    if (!btn) return;
+    var original = btn.textContent;
+    btn.addEventListener('click', function () {
+      var text = getText();
+      var done = function () {
+        btn.textContent = 'Copied!';
+        btn.setAttribute('data-copied', 'true');
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.removeAttribute('data-copied');
+        }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () {
+          btn.textContent = 'Could not copy — select manually';
+        });
+      } else {
+        btn.textContent = 'Could not copy — select manually';
+      }
+    });
+  }
+
+  wireCopy('copy-recipe', function () {
+    var ids = ['f-goal', 'f-context', 'f-input', 'f-steps', 'f-output', 'f-rules'];
+    var labels = ['Goal', 'Context', 'Input', 'Steps', 'Output', 'Rules'];
+    var lines = [];
+    ids.forEach(function (id, i) {
+      var el = document.getElementById(id);
+      var val = el ? el.value.trim() : '';
+      lines.push(labels[i] + ': ' + val);
+    });
+    return lines.join('\n');
+  });
+
+  wireCopy('copy-example', function () {
+    var box = document.getElementById('example-text');
+    return box ? box.innerText : '';
+  });
+})();
+</script>
+</body>
+</html>

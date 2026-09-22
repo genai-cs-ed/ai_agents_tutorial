@@ -22,6 +22,6 @@ Print them or fill them in digitally.
 
 | Handout | Used in |
 | --- | --- |
-| [Pick Your Task Worksheet](handouts/Pick%20Your%20Task%20Worksheet.docx) | Part 1: pick a repetitive task |
-| [Write Your Recipe Handout](handouts/Write%20Your%20Recipe%20Handout.docx) | Part 4: write the task as instructions |
+| [Pick Your Task Worksheet](handouts/pick-your-task.html) | Part 1: pick a repetitive task (also available as [DOCX](handouts/Pick%20Your%20Task%20Worksheet.docx)) |
+| [Write Your Recipe Handout](handouts/write-your-recipe.html) | Part 4: write the task as instructions (also available as [DOCX](handouts/Write%20Your%20Recipe%20Handout.docx)) |
 | [Sample Recipe - Lab Review](handouts/sample-recipe.html) | A filled-out example recipe (also available as [DOCX](handouts/Sample%20Recipe%20-%20Lab%20Review.docx)) |
