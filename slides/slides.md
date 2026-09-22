@@ -133,9 +133,23 @@ Leave this up while people work. If anyone is still stuck, offer examples. Facul
 
 ---
 
+<!-- _header: "" -->
+
 # 2. What is an agent?
 
-**You give it a goal. It runs a loop, largely on its own:**
+**A working definition:** software that takes a goal, decides its own next steps, uses tools to carry them out, and checks its result, with only a little steering from you.
+
+![bg right:52% contain](pictures/genai-then-now-agentic-loop.png)
+
+<!--
+0:10 to 0:20. Ground the definition in something the room already has a mental picture of: the ChatGPT that launched in November 2022, one ask, one answer, nothing in between. The picture on the right contrasts that with today's loop: goal, plan, act (with files, the web, code, other apps), observe, refine, with a human still setting the goal and giving oversight. Keep it factual, not a knock on 2022 ChatGPT: it was a genuine leap at the time. The point is only that the ground has moved since then. Next slide breaks the loop itself into its four steps in our own words.
+-->
+
+---
+
+# Plan, act, check, hand back
+
+**Give it a goal. It runs the loop largely on its own:**
 
 1. **Plan** an approach
 2. **Act**, using tools: files, the web, other apps
@@ -145,7 +159,7 @@ Leave this up while people work. If anyone is still stuck, offer examples. Facul
 **You set the goal and check what comes back. It does the rest in between.**
 
 <!--
-0:10 to 0:25. The one message for this block. Keep it short and jargon free. This is what makes something agentic: not a separate category of tool, but the middle of the loop running on its own, between the moment you state a goal and the moment you check the result. Point forward to the diagram on the next slide, which shows this loop and the wider spectrum of how much you hand off. If someone asks how this is different from "just chatting," the honest answer is that it is a difference in degree: the more of the plan-act-check loop the tool runs without you steering it step by step, the more agentic the workflow is.
+0:20 to 0:25. This is what makes something agentic: not a separate category of tool, but the middle of the loop running on its own, between the moment you state a goal and the moment you check the result. Point forward to the diagram on the next slide, which shows this loop and the wider spectrum of how much you hand off. If someone asks how this is different from "just chatting," the honest answer is that it is a difference in degree: the more of the plan-act-check loop the tool runs without you steering it step by step, the more agentic the workflow is.
 -->
 
 ---
@@ -166,19 +180,17 @@ Walk left to right through the top row: the goal stays fixed, the agent plans, a
 
 # Live demo: watch the loop run
 
-**The task:** plan the rest of a Computer Science degree from the official requirements and a transcript.
-
-**The goal, given once:** make a semester-by-semester plan so the student graduates in four years, covering every requirement.
+**The task, given once:** "Help me create a rubric for this assignment," pointed at a real programming lab.
 
 Watch for:
 
-- How it **plans** before it touches a file
-- How it **acts**, reading both files itself
-- How it **checks** its own plan against the requirements
-- What comes back: a finished plan, or a question
+- How it **plans** a rubric structure before writing anything
+- How it **acts**, reading the assignment and guidelines itself
+- How it **checks** the rubric against every deliverable in the assignment
+- What comes back: a draft rubric, or a question
 
 <!--
-Plan on eight to ten minutes. Full prompt, setup, and an answer key are in demo/demo-script.md, and the made-up student is in demo/sample-transcript.txt. Open Claude Cowork (or Antigravity) on a folder with the requirements PDF and the transcript. Give it the goal once, then narrate each stage of the loop as it happens: it decides how to approach the task (plan), opens both files itself (act), reviews its plan against every requirement (check), and either saves a finished plan or stops to ask you something (hand back). Pre-run the demo before the session and keep a screenshot or the saved output as a backup. Use only the made-up student, never a real record. Close by opening the plan and checking one line against the requirements yourself: an agent can still be wrong, and you own the result.
+Plan on eight to ten minutes. Full prompt, setup, and an answer key are in demo/demo-script.md. The assignment is demo/lab0 (a C++ lab), the same one behind the "Read a sample recipe together" slide later, which reviews submissions against a rubric like the one built here; mention that connection when you get there. Open Claude Cowork (or Antigravity) on the lab0 folder. Give it the goal once, then narrate each stage of the loop as it happens: it decides how to structure a rubric before writing one (plan), opens the assignment and the programming guidelines itself (act), checks that every deliverable in the assignment has a matching rubric line (check), and either saves a draft rubric or stops to ask you something, such as how to weight categories (hand back). Pre-run the demo before the session and keep a screenshot or the saved output as a backup. Close by checking one rubric line against the assignment yourself: an agent can still be wrong, and you own the result.
 -->
 
 ---
