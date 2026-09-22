@@ -24,4 +24,4 @@ Print them or fill them in digitally.
 | --- | --- |
 | [Pick Your Task Worksheet](handouts/Pick%20Your%20Task%20Worksheet.docx) | Part 1: pick a repetitive task |
 | [Write Your Recipe Handout](handouts/Write%20Your%20Recipe%20Handout.docx) | Part 4: write the task as instructions |
-| [Sample Recipe - Lab Review](handouts/Sample%20Recipe%20-%20Lab%20Review.docx) | A filled-out example recipe |
+| [Sample Recipe - Lab Review](handouts/sample-recipe.html) | A filled-out example recipe (also available as [DOCX](handouts/Sample%20Recipe%20-%20Lab%20Review.docx)) |

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sample Recipe: Reviewing Lab Submissions | AI Agents Tutorial</title>
+<meta name="description" content="A filled-out example recipe for reviewing student lab submissions against a rubric, ready to copy and paste into Claude or Gemini.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f6f7f8;
+    --card: #ffffff;
+    --text: #1f2328;
+    --muted: #59636e;
+    --border: #d8dde2;
+    --accent: #a51417;
+    --accent-strong: #8a1013;
+    --accent-soft: #fbeaea;
+    --on-accent: #ffffff;
+    --shadow: 0 1px 2px rgba(20, 24, 28, .06), 0 4px 16px rgba(20, 24, 28, .06);
+    --shadow-hover: 0 2px 4px rgba(20, 24, 28, .08), 0 10px 28px rgba(20, 24, 28, .12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1013;
+      --surface: #14171b;
+      --card: #191d22;
+      --text: #e8eaed;
+      --muted: #a3acb6;
+      --border: #2b3138;
+      --accent: #ef7276;
+      --accent-strong: #f59a9d;
+      --accent-soft: #2a1a1c;
+      --on-accent: #1a0a0b;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+      --shadow-hover: 0 8px 28px rgba(0, 0, 0, .55);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, .btn:focus-visible, .card:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  .wrap { width: min(1080px, 100% - 48px); margin-inline: auto; }
+
+  /* Top bar */
+  .topbar { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  .brand { font-weight: 700; color: var(--text); text-decoration: none; font-size: 15px; letter-spacing: .01em; }
+  .brand span { color: var(--accent); }
+  nav { display: flex; gap: 22px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; }
+  nav a:hover { color: var(--text); }
+
+  .doc { padding: 48px 0 72px; }
+  .doc .wrap { max-width: 860px; }
+  .back { display: inline-block; margin: 0 0 20px; font-size: 15px; font-weight: 600; text-decoration: none; }
+  .doc h1 { font-size: clamp(30px, 4.6vw, 42px); max-width: none; margin: 0 0 18px; }
+  .doc h2 { margin: 44px 0 14px; padding-top: 8px; font-size: clamp(22px, 3vw, 28px); }
+  .doc h3 { margin: 28px 0 8px; font-size: 19px; }
+  .doc hr { border: 0; border-top: 1px solid var(--border); margin: 36px 0 0; }
+  .doc table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; display: block; overflow-x: auto; }
+  .doc th, .doc td { text-align: left; vertical-align: top; padding: 10px 14px; border: 1px solid var(--border); }
+  .doc th { background: var(--surface); }
+  .doc pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; overflow-x: auto; font-size: 14.5px; line-height: 1.5; }
+  .doc code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; background: var(--surface); padding: 1px 5px; border-radius: 4px; }
+  .doc pre code { background: none; padding: 0; }
+  .doc blockquote { margin: 12px 0; padding: 4px 18px; border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: 0 10px 10px 0; }
+  .doc li { margin: 6px 0; }
+  .dl { margin: 0 0 8px; }
+
+  .recipe-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; margin: 16px 0; }
+  .recipe-box p { margin: 0 0 14px; }
+  .recipe-box p:last-child { margin-bottom: 0; }
+  .recipe-box ol { margin: 6px 0 14px; padding-left: 22px; }
+  .recipe-box ol li { margin: 4px 0; }
+  .recipe-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 44px 0 0; padding-top: 8px; }
+  .recipe-head h2 { margin: 0; }
+  .recipe-note { color: var(--muted); font-size: 15px; margin: 4px 0 0; }
+  .copy-btn {
+    appearance: none; border: 1px solid var(--border); background: var(--card); color: var(--text);
+    font-size: 14.5px; font-weight: 600; padding: 9px 16px; border-radius: 8px; cursor: pointer;
+    font-family: inherit;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .copy-btn[data-copied="true"] { border-color: var(--accent); color: var(--accent); }
+  @media print { .topbar, footer, .back, .dl, .copy-btn { display: none; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">AI Agents <span>Tutorial</span></a>
+    <nav aria-label="Site"><a href="../index.html#materials">Materials</a><a href="../index.html#tools">Tools</a></nav>
+  </div>
+</header>
+<main class="doc">
+  <div class="wrap">
+    <a class="back" href="../index.html#materials">&larr; Back to materials</a>
+    <p class="dl"><a href="Sample%20Recipe%20-%20Lab%20Review.docx" download>Download this sample as a Word document</a></p>
+<h1>Write Your Recipe: Sample</h1>
+<p>A filled-out example for reviewing student lab submissions, in the same format as the handout. The Rules are suggested additions. Select everything under Your Recipe and paste it into Claude or Gemini.</p>
+<hr />
+<h2>What to write in each field</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">What to write</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Goal</strong></td>
+<td style="text-align: left;">What you want done, in one sentence.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Context</strong></td>
+<td style="text-align: left;">Who you are and who will read the result.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Input</strong></td>
+<td style="text-align: left;">What you will give it each time.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Steps</strong></td>
+<td style="text-align: left;">The actions, numbered, in order.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Output</strong></td>
+<td style="text-align: left;">Format, length, tone, headings.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rules</strong></td>
+<td style="text-align: left;">What it must never do, and when it should ask you instead of guessing.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Good example</strong></td>
+<td style="text-align: left;">Optional: a sample result you would be happy with.</td>
+</tr>
+</tbody>
+</table>
+<div class="recipe-head">
+  <h2 id="recipe" style="margin:0; padding-top:0;">Your recipe</h2>
+  <button class="copy-btn" id="copy-recipe" type="button" aria-label="Copy the recipe text">Copy recipe text</button>
+</div>
+<p class="recipe-note">Plain text, ready to copy and paste.</p>
+<div class="recipe-box" id="recipe-text">
+<p><strong>Goal:</strong> Review each student's lab submission against the rubric and write up how the rubric applies to it.</p>
+<p><strong>Context:</strong> You are a teaching assistant. I will give you a rubric and the students' submissions, and you need to apply the rubric to each submission.</p>
+<p><strong>Input:</strong> The rubric, and a folder of student submissions. Each student's submission is in its own sub-directory.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Review the rubric.</li>
+<li>Each student's submission is in its own sub-directory. Work through them one at a time.</li>
+<li>Apply the rubric to each student's submission.</li>
+<li>To compile a submission, run "make" on this system.</li>
+<li>Run the executable that make produces (most likely named lab0).</li>
+<li>Review the code as the rubric describes, and judge the quality of the work for each rubric category.</li>
+<li>Create a review.md file with specifics of how each rubric category was applied.</li>
+<li>At the end of review.md, give examples where the work was not perfect, according to the rubric.</li>
+</ol>
+<p><strong>Output:</strong> A review.md file for each student's submission. It shows how each rubric category was applied, with specifics. At the end of the file, it gives examples where the work was not perfect.</p>
+<p><strong>Rules:</strong> Apply the rubric as written and do not add criteria of your own. Do not change any student's files. If a submission does not compile or run, say so in its review and review what you can from the code. If anything in the rubric is unclear, ask me instead of guessing.</p>
+</div>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <span>AI Agents Tutorial &middot; WashU AI Perspectives Week 2026</span>
+    <a href="https://github.com/genai-cs-ed/ai_agents_tutorial">Source on GitHub</a>
+  </div>
+</footer>
+<script>
+(function () {
+  var btn = document.getElementById('copy-recipe');
+  var box = document.getElementById('recipe-text');
+  if (!btn || !box) return;
+  btn.addEventListener('click', function () {
+    var text = box.innerText;
+    var done = function () {
+      var original = 'Copy recipe text';
+      btn.textContent = 'Copied!';
+      btn.setAttribute('data-copied', 'true');
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.removeAttribute('data-copied');
+      }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () {
+        btn.textContent = 'Select the text above to copy';
+      });
+    } else {
+      btn.textContent = 'Select the text above to copy';
+    }
+  });
+})();
+</script>
+</body>
+</html>
